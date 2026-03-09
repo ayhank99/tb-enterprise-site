@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">TB Entreprise logo</title>
+  <desc id="desc">TB Entreprise med slogan Dit projekt, vores ansvar.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#03060b" />
+      <stop offset="1" stop-color="#252c39" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" fill="url(#bg)" rx="20" ry="20" />
+  <text
+    x="600"
+    y="168"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Arial Rounded MT Bold, Trebuchet MS, Avenir Next Rounded, Segoe UI, sans-serif"
+    font-size="122"
+    font-weight="700"
+    letter-spacing="2"
+  >
+    TB ENTREPRISE
+  </text>
+  <text
+    x="600"
+    y="248"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Arial, sans-serif"
+    font-size="44"
+    letter-spacing="16"
+    opacity="0.94"
+  >
+    DIT PROJEKT, VORES ANSVAR
+  </text>
+</svg>

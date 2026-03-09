@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TB Entreprise | Hjemmeside under opbygning</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="TB Entreprise arbejder paa en ny professionel hjemmeside. Kontakt os gerne imens for opgaver, tilbud eller spoergsmaal."
+    />
+    <style>
+      :root {
+        --site-dark: #091b37;
+        --site-dark-soft: #0f274c;
+        --site-primary: #f2ab1f;
+        --site-primary-strong: #ffbf42;
+        --site-text: #eef3fb;
+        --site-muted: rgba(238, 243, 251, 0.72);
+        --site-border: rgba(255, 255, 255, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--site-text);
+        background:
+          radial-gradient(circle at top right, rgba(242, 171, 31, 0.18), transparent 30%),
+          linear-gradient(135deg, #061325 0%, #091b37 52%, #0f274c 100%);
+      }
+
+      .shell {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .shell::before,
+      .shell::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(12px);
+        opacity: 0.24;
+      }
+
+      .shell::before {
+        top: -6rem;
+        right: -5rem;
+        width: 16rem;
+        height: 16rem;
+        background: rgba(242, 171, 31, 0.45);
+      }
+
+      .shell::after {
+        bottom: -8rem;
+        left: -5rem;
+        width: 20rem;
+        height: 20rem;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .inner {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 3rem;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 0 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.85rem;
+        color: var(--site-text);
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 3rem;
+        height: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 2px solid rgba(242, 171, 31, 0.7);
+        color: var(--site-primary);
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .status {
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--site-border);
+        background: rgba(255, 255, 255, 0.04);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.75fr);
+        align-items: stretch;
+        margin-top: 4.5rem;
+      }
+
+      .hero-copy,
+      .hero-card {
+        border: 1px solid var(--site-border);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero-copy {
+        padding: 3rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: var(--site-primary);
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 1rem 0 0;
+        font-size: clamp(2.4rem, 5vw, 4.9rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .lead {
+        margin: 1.5rem 0 0;
+        max-width: 44rem;
+        color: var(--site-muted);
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.4rem;
+        padding: 0 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .cta:hover {
+        transform: translateY(-1px);
+      }
+
+      .cta-primary {
+        background: var(--site-primary);
+        color: var(--site-dark);
+      }
+
+      .cta-secondary {
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        color: var(--site-text);
+      }
+
+      .hero-card {
+        padding: 2rem;
+        background: rgba(4, 15, 31, 0.65);
+      }
+
+      .card-label {
+        margin: 0;
+        color: var(--site-primary);
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .card-title {
+        margin: 0.9rem 0 0;
+        font-size: 1.8rem;
+        line-height: 1.15;
+      }
+
+      .card-text {
+        margin: 1rem 0 0;
+        color: var(--site-muted);
+        line-height: 1.7;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .contact-item {
+        padding: 1rem 1.1rem;
+        border: 1px solid var(--site-border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .contact-item span {
+        display: block;
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--site-primary);
+      }
+
+      .contact-item strong,
+      .contact-item a {
+        display: block;
+        margin-top: 0.45rem;
+        color: var(--site-text);
+        text-decoration: none;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .bottom-note {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--site-border);
+        color: var(--site-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy,
+        .hero-card {
+          padding: 1.5rem;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="inner">
+        <div class="topbar">
+          <a class="brand" href="/">
+            <span class="brand-mark">TB</span>
+            <span class="brand-text">TB Entreprise</span>
+          </a>
+          <div class="status">Hjemmeside under opbygning</div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Professionel entreprise, anlaeg og drift</p>
+            <h1>Vi arbejder paa en ny og mere gennemfoert hjemmeside.</h1>
+            <p class="lead">
+              TB Entreprise er i gang med at faerdiggoere en ny digital loesning med fokus paa klare
+              ydelser, staerkere referencer og en mere professionel kundeoplevelse. Previewversionen
+              ligger i en separat testmappe til kundegodkendelse og bliver offentliggjort, saa snart
+              den endelige gennemgang er afsluttet.
+            </p>
+            <div class="cta-row">
+              <a class="cta cta-primary" href="tel:+4593800426">Ring 93 80 04 26</a>
+              <a class="cta cta-secondary" href="mailto:kontakt@tbgruppen.dk">Skriv til os</a>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <p class="card-label">Kontakt imens</p>
+            <h2 class="card-title">Vi er fortsat klar til nye opgaver og tilbud.</h2>
+            <p class="card-text">
+              Har du en konkret opgave inden for belaegning, anlaeg, haveservice eller mindre
+              entrepriser, er du velkommen til at kontakte os direkte.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <span>Telefon</span>
+                <a href="tel:+4593800426">93 80 04 26</a>
+              </div>
+              <div class="contact-item">
+                <span>E-mail</span>
+                <a href="mailto:kontakt@tbgruppen.dk">kontakt@tbgruppen.dk</a>
+              </div>
+              <div class="contact-item">
+                <span>Adresse</span>
+                <strong>Lyskaer 8 A, st. th, 2730 Herlev</strong>
+              </div>
+            </div>
+
+            <p class="bottom-note">
+              Tak for taelmodigheden. Den nye hjemmeside bliver frigivet, naar previewet er godkendt
+              og kvalitetssikret.
+            </p>
+          </aside>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

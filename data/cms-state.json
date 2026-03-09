@@ -1,0 +1,649 @@
+{
+  "activeTemplate": "builderz",
+  "content": {
+    "company": {
+      "name": "TB ENTERPRISE",
+      "logoUrl": "/brand/tb-entreprise-logo.svg",
+      "phoneDisplay": "93 80 04 26",
+      "phoneHref": "tel:+4593800426",
+      "email": "info@tbgruppen.dk",
+      "address": "Lyskær 8 A, st. th, 2730 Herlev",
+      "cvr": "CVR-nr 45607569",
+      "openingHours": "Man-fre 07:00-17:00",
+      "serviceAreas": [
+        "Herlev",
+        "København",
+        "Ballerup",
+        "Roskilde",
+        "Storkøbenhavn"
+      ]
+    },
+    "navigation": [
+      {
+        "label": "Forside",
+        "href": "/",
+        "show": true
+      },
+      {
+        "label": "Om os",
+        "href": "/om-os",
+        "show": true
+      },
+      {
+        "label": "Ydelser",
+        "href": "/ydelser",
+        "show": true,
+        "children": [
+          {
+            "label": "Belægning",
+            "href": "/ydelser/belaegning"
+          },
+          {
+            "label": "Græsslåning",
+            "href": "/ydelser/graesslaaning"
+          },
+          {
+            "label": "Hækklipning",
+            "href": "/ydelser/haekklipning"
+          },
+          {
+            "label": "Træfældning og beskæring",
+            "href": "/ydelser/traefaeldning-og-beskaering"
+          }
+        ]
+      },
+      {
+        "label": "Galleri",
+        "href": "/galleri",
+        "show": true
+      },
+      {
+        "label": "Fagområder",
+        "href": "/sider",
+        "show": true
+      },
+      {
+        "label": "Kontakt",
+        "href": "/kontakt",
+        "show": true,
+        "highlight": true
+      }
+    ],
+    "hero": {
+      "eyebrow": "Entreprenør, anlæg og vedligehold i Storkøbenhavn",
+      "title": "TB Entreprise leverer belægning, udearealer og mindre entrepriser med styr på hele forløbet",
+      "text": "Vi hjælper private, erhverv og boligforeninger med belægning, jordarbejde, haveservice, træarbejde og opgradering af udearealer. Vores fokus er en løsning, der er gennemtænkt, driftssikker og afleveret professionelt.",
+      "primaryCtaLabel": "Få et uforpligtende tilbud",
+      "primaryCtaHref": "/kontakt#tilbudsformular",
+      "secondaryCtaLabel": "Ring nu",
+      "secondaryCtaHref": "tel:+4593800426",
+      "backgroundType": "image",
+      "backgroundImage": "/uploads/gemini_generated_image_v6yr39v6yr39v6yr-d122e087.png",
+      "backgroundVideo": "/uploads/gen-4-turbo-cinematic-construction-scene-workers-installing-paving-stones-on-a-residential-driveway-one-worker-is-carefully-placing-bricks-with-a-hammer-while-another-operates-a-compactor-an-excava-260a7432.mp4"
+    },
+    "trustPoints": [
+      "Belægning, anlæg og vedligehold samlet hos samme leverandør",
+      "Private, erhverv og boligforeninger i hele Storkøbenhavn",
+      "Tydelig styring af tid, kvalitet og leverance",
+      "Entrepriseforståelse fra besigtigelse til aflevering"
+    ],
+    "services": [
+      {
+        "slug": "belaegning",
+        "title": "Belægning",
+        "icon": "BL",
+        "short": "Indkørsler, terrasser og gangarealer med korrekt opbygning og professionel finish.",
+        "description": "Vi etablerer belægning til private boliger, erhverv og boligforeninger med fokus på bundopbygning, afvanding, slidstyrke og et skarpt visuelt udtryk.",
+        "includes": [
+          "Udgravning, bundopbygning og afretning",
+          "Lægning af sten, fliser og kantafgrænsning",
+          "Fugearbejde, finish og professionel aflevering"
+        ],
+        "idealFor": [
+          "Indkørsler og adgangsveje",
+          "Terrasser og gårdrum",
+          "Gangarealer ved bolig og erhverv"
+        ],
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "graesslaaning",
+        "title": "Græsslåning",
+        "icon": "GR",
+        "short": "Regelmæssig græspleje med ensartet udtryk og stabil drift gennem hele sæsonen.",
+        "description": "Vi leverer græsslåning med faste intervaller, skarpe kanter og et niveau, der passer til ejendommens daglige brug og visuelle standard.",
+        "includes": [
+          "Fast eller fleksibel frekvens",
+          "Kanttrimning og let oprydning",
+          "Tilpasning efter sæson og arealtype"
+        ],
+        "idealFor": [
+          "Private haver",
+          "Boligforeninger og gårdmiljøer",
+          "Erhvervsejendomme og institutioner"
+        ],
+        "image": "https://images.unsplash.com/photo-1599685315640-6f8f6f95f6f7?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "haekklipning",
+        "title": "Hækklipning",
+        "icon": "HK",
+        "short": "Præcis klipning af hække med skarpe linjer, korrekt højde og ordentlig finish.",
+        "description": "Vi klipper hække professionelt for kunder, der vil have et velholdt udeareal med rene linjer, ensartet form og sikker udførelse.",
+        "includes": [
+          "Klipning af sider, top og overgange",
+          "Formjustering og tilretning",
+          "Oprydning og bortkørsel efter aftale"
+        ],
+        "idealFor": [
+          "Ligusterhæk",
+          "Thuja, bøg og laurbær",
+          "Ejendomme med mange løbende meter"
+        ],
+        "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "traefaeldning-og-beskaering",
+        "title": "Træfældning og beskæring",
+        "icon": "TR",
+        "short": "Sikker håndtering af træer med planlægning, kontrol og professionel afslutning.",
+        "description": "Vi udfører beskæring og træfældning med fokus på sikkerhed, adgangsforhold, omgivelser og en ryddelig aflevering efter arbejdet.",
+        "includes": [
+          "Beskæring af kroner og grene",
+          "Kontrolleret nedtagning i sektioner",
+          "Bortkørsel af grene, stammer og haveaffald"
+        ],
+        "idealFor": [
+          "Svært tilgængelige haver og gårde",
+          "Stormskadede eller overgroede træer",
+          "Forebyggende vedligehold af ejendomme"
+        ],
+        "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "havefraesning",
+        "title": "Havefræsning",
+        "icon": "HF",
+        "short": "Klargøring af jord og terræn som forberedelse til ny beplantning eller nyt anlæg.",
+        "description": "Vi fræser og klargør jorden, så arealet er klar til ny beplantning, græs, renovering eller det videre entreprisearbejde.",
+        "includes": [
+          "Løsning af kompakt jord",
+          "Planering og grov klargøring",
+          "Klar base til såning eller videre anlæg"
+        ],
+        "idealFor": [
+          "Nyanlæg og haveprojekter",
+          "Renovering af gamle bede og arealer",
+          "Store udeområder med behov for forberedelse"
+        ],
+        "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "stubfraesning",
+        "title": "Stubfræsning",
+        "icon": "SF",
+        "short": "Effektiv fjernelse af stubbe, så arealet hurtigt kan bruges til nye formål.",
+        "description": "Vi stubfræser med fokus på dybde, adgang og efterfølgende anvendelse, så arealet kan klargøres til beplantning, belægning eller videre anlæg.",
+        "includes": [
+          "Nedfræsning under terrænniveau",
+          "Rengøring og klargøring af arealet",
+          "Forberedt til ny opbygning eller ny beplantning"
+        ],
+        "idealFor": [
+          "Efter træfældning og beskæring",
+          "Nye bede og beplantninger",
+          "Nye gangarealer eller terrassezoner"
+        ],
+        "image": "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "slug": "haveservice",
+        "title": "Haveservice",
+        "icon": "HS",
+        "short": "Løbende vedligehold af hele udearealet i faste intervaller og med fast kvalitet.",
+        "description": "Vi sammensætter haveservice efter ejendommens behov og tager ansvar for, at udearealerne fremstår plejet, funktionelle og professionelle gennem hele året.",
+        "includes": [
+          "Græs, hæk, bede og generel pleje",
+          "Sæsonklargøring og løbende opfølgning",
+          "Serviceaftaler tilpasset drift og budget"
+        ],
+        "idealFor": [
+          "Private med travl hverdag",
+          "Ejendomsdrift og boligforeninger",
+          "Erhverv med synlige udearealer"
+        ],
+        "image": "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "processSteps": [
+      {
+        "title": "Besigtigelse og afklaring",
+        "text": "Vi gennemgår opgaven på adressen, vurderer adgang, materialer og omfang og afklarer de praktiske forhold fra start."
+      },
+      {
+        "title": "Tilbud og løsningsforslag",
+        "text": "Du modtager et tydeligt tilbud med beskrivelse af leverancen, forventet tidsplan og de valg, der har betydning for kvalitet og pris."
+      },
+      {
+        "title": "Udførelse med styring",
+        "text": "Arbejdet planlægges og udføres struktureret, så fremdrift, sikkerhed og finish hænger sammen gennem hele forløbet."
+      },
+      {
+        "title": "Aflevering og opfølgning",
+        "text": "Vi afslutter med en professionel gennemgang, oprydning og en løsning, der er klar til brug fra dag ét."
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "De holdt alle aftaler og leverede en flot belægning foran huset. Kommunikation, kvalitet og aflevering var i top.",
+        "name": "Mette, Herlev"
+      },
+      {
+        "quote": "Vi bruger dem fast til drift af udearealerne. Det fungerer stabilt, og stedet fremstår altid velholdt.",
+        "name": "Boligforening, Ballerup"
+      },
+      {
+        "quote": "Træfældning og beskæring blev udført sikkert, hurtigt og meget professionelt. Vi bruger dem gerne igen.",
+        "name": "Anders, København"
+      }
+    ],
+    "galleryImages": [
+      {
+        "src": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Ny anlagt indkørsel med granitkant i moderne boligområde",
+        "title": "Moderne indkørsel",
+        "category": "Indkørsel",
+        "href": "/galleri"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Stor terrasse med fliser i varme grå nuancer",
+        "title": "Terrasse i varme toner",
+        "category": "Terrasse",
+        "href": "/galleri"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1472224371017-08207f84aaae?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Brolagt havegang med præcise fuger og niveauskift",
+        "title": "Havegang med detaljefuger",
+        "category": "Belægning",
+        "href": "/galleri"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Støttemur og trappeløsning i kuperet have",
+        "title": "Støttemur i niveauer",
+        "category": "Anlæg",
+        "href": "/galleri"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Jord- og gravearbejde før etablering af ny belægning",
+        "title": "Forberedende gravearbejde",
+        "category": "Jordarbejde",
+        "href": "/galleri"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Færdigt gårdanlæg med stenbelægning og grøn beplantning",
+        "title": "Færdigt gårdanlæg",
+        "category": "Anlæg",
+        "href": "/galleri"
+      }
+    ],
+    "companyStory": {
+      "title": "Professionel samarbejdspartner til anlæg, vedligehold og mindre entrepriser",
+      "intro": "TB Entreprise arbejder i hele Storkøbenhavn med udearealer, belægning, træarbejde, vedligehold og mindre entrepriser for private, erhverv og boligforeninger.",
+      "points": [
+        "Vi kombinerer praktisk håndværk med tydelig planlægning og realistiske tidsrammer.",
+        "Vi løser både enkeltopgaver, driftsaftaler og mindre entrepriser med samme fokus på kvalitet.",
+        "Vi prioriterer ordentlig kommunikation, sikker udførelse og en aflevering, der fremstår professionel."
+      ]
+    },
+    "quoteForm": {
+      "title": "Uforpligtende tilbud",
+      "heading": "Beskriv opgaven kort, så vender vi tilbage med en professionel afklaring og et tilbud.",
+      "intro": "Fortæl os, hvad du skal have lavet. Vi gennemgår din forespørgsel og kontakter dig hurtigst muligt med næste skridt.",
+      "labels": {
+        "name": "Navn",
+        "phone": "Telefon",
+        "email": "E-mail",
+        "location": "Postnummer / by",
+        "task": "Opgavebeskrivelse",
+        "consent": "Jeg accepterer, at I må kontakte mig vedrørende min forespørgsel.",
+        "submit": "Send forespørgsel"
+      },
+      "messages": {
+        "success": "Tak for din henvendelse. Vi har modtaget din forespørgsel og vender tilbage hurtigst muligt.",
+        "error": "Forespørgslen kunne ikke sendes lige nu. Prøv igen om lidt eller kontakt os direkte."
+      }
+    },
+    "pages": {
+      "home": {
+        "sections": [
+          {
+            "type": "hero",
+            "enabled": true
+          },
+          {
+            "type": "trustStrip",
+            "enabled": true
+          },
+          {
+            "type": "servicesGrid",
+            "enabled": true,
+            "variant": "A"
+          },
+          {
+            "type": "projectsGallery",
+            "enabled": true,
+            "variant": "masonry"
+          },
+          {
+            "type": "process",
+            "enabled": true,
+            "variant": "steps"
+          },
+          {
+            "type": "testimonials",
+            "enabled": true,
+            "variant": "cards"
+          },
+          {
+            "type": "ctaBanner",
+            "enabled": true,
+            "variant": "split"
+          }
+        ],
+        "services": {
+          "eyebrow": "Ydelser og fagområder",
+          "title": "Belægning, anlæg, vedligehold og praktisk entreprisearbejde samlet ét sted",
+          "intro": "Vi løser opgaver for kunder, der vil have et udeareal, som fungerer i hverdagen, ser professionelt ud og er bygget til at holde."
+        },
+        "process": {
+          "eyebrow": "Samarbejdet",
+          "title": "Et tydeligt projektforløb fra første dialog til færdig aflevering",
+          "intro": "Vi arbejder struktureret med afklaring, tilbud, udførelse og aflevering, så du får overblik over hele forløbet."
+        },
+        "projects": {
+          "eyebrow": "Udvalgte referencer",
+          "title": "Eksempler på opgaver inden for belægning, udearealer og løbende drift",
+          "intro": "Se projekter, hvor vi har arbejdet med funktion, finish og holdbare løsninger for både private og professionelle kunder."
+        },
+        "testimonials": {
+          "eyebrow": "Kundetilbagemeldinger",
+          "title": "Det siger kunderne om kvaliteten, dialogen og afleveringen",
+          "intro": "Vi prioriterer et samarbejde, hvor aftaler bliver holdt, og hvor resultatet kan mærkes i den daglige brug af arealet."
+        },
+        "about": {
+          "eyebrow": "Om TB Entreprise",
+          "title": "Vi bygger løsninger til udearealer med fokus på kvalitet, drift og helhedsforståelse",
+          "intro": "Fra den første besigtigelse til den sidste finish arbejder vi med samme krav til struktur, kommunikation og professionel udførelse."
+        },
+        "aboutCta": {
+          "eyebrow": "Klar til næste skridt",
+          "title": "Skal vi se på dit projekt eller dine udearealer?",
+          "text": "Kontakt TB Entreprise for en uforpligtende dialog om belægning, vedligehold, anlæg eller mindre entrepriser.",
+          "primaryLabel": "Indhent tilbud",
+          "secondaryLabel": "Læs om os"
+        },
+        "narrative": {
+          "eyebrow": "TB Entreprise",
+          "title": "En samarbejdspartner til udearealer, anlæg og mindre entrepriser",
+          "intro": "Vi arbejder med projekter, hvor kvalitet i underlaget, styring i processen og en professionel aflevering er afgørende for slutresultatet.",
+          "paragraphs": [
+            "TB Entreprise hjælper private boligejere, boligforeninger, erhverv og institutioner med opgaver inden for belægning, anlæg, pleje og praktisk entreprisearbejde. Vores rolle er at skabe løsninger, der fungerer i hverdagen og holder over tid.",
+            "Vi ser ikke kun på den enkelte opgave isoleret. Vi vurderer adgangsforhold, materialevalg, tidsplan, logistik og den efterfølgende drift, så kunden får et samlet forløb med tydelige aftaler og et resultat, der matcher både behov og budget."
+          ],
+          "highlights": [
+            "Belægning, jordarbejde og klargøring af udearealer",
+            "Vedligeholdelse og haveservice for private, erhverv og foreninger",
+            "Mindre entrepriser med klar koordinering og ansvar"
+          ]
+        }
+      },
+      "services": {
+        "eyebrow": "Ydelser",
+        "title": "Ydelser inden for belægning, anlæg, vedligehold og mindre entrepriser",
+        "intro": "Vi leverer løsninger, der kombinerer praktisk håndværk, planlægning og driftshensyn, så udearealet fungerer både nu og på lang sigt.",
+        "narrative": {
+          "eyebrow": "Fagområder",
+          "title": "Ydelser med fokus på driftssikre løsninger og lang levetid",
+          "intro": "Vores ydelser er sammensat, så vi kan tage ansvar for både etablering, forbedring og løbende vedligehold af udearealer.",
+          "paragraphs": [
+            "Vi løser opgaver inden for belægning, græspleje, hækklipning, træarbejde, jordforberedelse og vedligeholdelse. Derudover indgår vi gerne i mindre entrepriser, hvor opgaven kræver koordinering, planlægning og en leverandør, der kan holde styr på helheden.",
+            "For kunden betyder det, at samme virksomhed kan være med fra den første besigtigelse til den afsluttende aflevering. Det giver bedre sammenhæng i løsningen, hurtigere beslutninger og et mere overskueligt forløb."
+          ],
+          "highlights": [
+            "Løsninger til private, erhverv, institutioner og boligforeninger",
+            "Både etablering, renovering og løbende drift",
+            "Teknisk fokus på opbygning, funktion og visuelt udtryk"
+          ]
+        }
+      },
+      "gallery": {
+        "eyebrow": "Galleri og referencer",
+        "title": "Udvalgte projekter, der viser vores niveau for kvalitet og detaljegrad",
+        "intro": "Galleriet giver et indblik i opgaver, hvor vi har arbejdet med belægning, anlæg, vedligehold og professionel opgradering af udearealer.",
+        "narrative": {
+          "eyebrow": "Referencer",
+          "title": "Arbejdet i galleriet viser vores niveau for kvalitet og detaljegrad",
+          "intro": "Billederne giver et konkret indblik i, hvordan TB Entreprise arbejder med udearealer, belægning, anlæg og vedligehold i praksis.",
+          "paragraphs": [
+            "Vi dokumenterer projekter, fordi det er vigtigt at vise mere end bare et flot slutbillede. Et godt resultat bygger på korrekt forberedelse, gennemtænkte materialevalg og en arbejdsproces, hvor der er styr på detaljer, kanter, niveauforskelle og den samlede finish.",
+            "Galleriet afspejler den type opgaver, vi løser for kunder i Storkøbenhavn. Her ser du eksempler på løsninger, hvor funktion, udtryk og holdbarhed er prioriteret fra start til slut."
+          ],
+          "highlights": [
+            "Dokumenterede opgaver inden for belægning og anlæg",
+            "Professionel finish på terrasser, indkørsler og gangarealer",
+            "Visuelt overblik over kvaliteten i vores daglige arbejde"
+          ]
+        }
+      },
+      "about": {
+        "hero": {
+          "eyebrow": "Om os",
+          "title": "TB Entreprise kombinerer håndværk, struktur og entrepriseforståelse",
+          "intro": "Vi arbejder for kunder, der vil have tydelige aftaler, professionel udførelse og en samarbejdspartner, der tager ansvar for helheden i projektet."
+        },
+        "whyTitle": "Hvorfor kunder vælger TB Entreprise",
+        "whyPoints": [
+          "Vi planlægger opgaverne realistisk og holder fokus på fremdrift og kvalitet.",
+          "Vi kan løse både driftsopgaver, anlægsopgaver og mindre entrepriser i samme samarbejde.",
+          "Vi prioriterer ordentlig kommunikation, oprydning og en professionel aflevering.",
+          "Vi tilpasser løsningen til både private boliger, erhvervsejendomme og boligforeninger."
+        ],
+        "principleTitle": "Vores arbejdsprincip",
+        "principleText": "Et godt resultat starter med grundig afklaring. Derfor arbejder vi med besigtigelse, klare forslag, tydelige aftaler og en løsning, hvor funktion, materialer og den daglige brug af arealet hænger sammen.",
+        "narrative": {
+          "eyebrow": "Om virksomheden",
+          "title": "Vi kombinerer håndværk, struktur og praktisk entrepriseforståelse",
+          "intro": "TB Entreprise er bygget op omkring ordentlig planlægning, synlig kvalitet og en arbejdsform, hvor kunden altid ved, hvad der bliver leveret.",
+          "paragraphs": [
+            "Vi løser opgaver i hele Storkøbenhavn og arbejder både med enkeltopgaver og løbende aftaler. Uanset om det handler om en ny indkørsel, renovering af et gårdmiljø, pleje af udearealer eller en mindre entrepriseopgave, går vi til arbejdet med samme krav til finish, fremdrift og dialog.",
+            "Vores styrke ligger i at kunne omsætte praktiske behov til en realistisk løsning. Det betyder, at vi prioriterer god forberedelse, tydelig opfølgning og en aflevering, der fremstår professionel fra første dag."
+          ],
+          "highlights": [
+            "Fast kontaktperson gennem hele forløbet",
+            "Tydelige planer, realistiske tidsrammer og løbende status",
+            "Fokus på finish, holdbarhed og professionel fremtoning"
+          ]
+        }
+      },
+      "contact": {
+        "hero": {
+          "eyebrow": "Kontakt og tilbud",
+          "title": "Lad os tale om dit projekt, din ejendom eller dit udeareal",
+          "intro": "Kontakt os, hvis du vil have en professionel vurdering af belægning, vedligehold, haveservice, træarbejde eller mindre entrepriser. Vi vender hurtigt tilbage."
+        },
+        "cardLabels": {
+          "phone": "Telefon",
+          "email": "E-mail",
+          "address": "Adresse",
+          "openingHours": "Åbningstid"
+        },
+        "narrative": {
+          "eyebrow": "Kontakt og tilbud",
+          "title": "En god dialog starter med en klar afklaring af opgaven",
+          "intro": "Vi bruger den første kontakt til at forstå omfang, prioriteringer og de praktiske forhold omkring opgaven, så vi kan vende tilbage med et brugbart svar.",
+          "paragraphs": [
+            "Når du kontakter TB Entreprise, handler det ikke kun om at få en pris. Det handler om at få vurderet opgaven korrekt fra start, så vi kan foreslå en løsning, der passer til arealet, materialerne og det niveau af kvalitet, du forventer.",
+            "Vi arbejder med både mindre opgaver og større forløb for private, erhverv og boligforeninger. Derfor er vores målsætning altid at skabe et tilbud, der er konkret, realistisk og let at tage stilling til."
+          ],
+          "highlights": [
+            "Hurtig respons og professionel afklaring",
+            "Tydelige tilbud med fokus på omfang, pris og tidsplan",
+            "Praktisk vurdering af opgaven før udførelse"
+          ]
+        }
+      },
+      "customPages": {
+        "eyebrow": "Faglige indsigter",
+        "title": "Læs mere om vores arbejdsområder og måden vi driver projekter på",
+        "intro": "De ekstra sider uddyber, hvordan TB Entreprise arbejder med entrepriser, erhvervsløsninger og projektforløb i praksis."
+      },
+      "privacy": {
+        "title": "Privatlivspolitik",
+        "sections": [
+          {
+            "heading": "1. Dataansvarlig",
+            "text": "TB Entreprise er dataansvarlig for behandling af de oplysninger, du sender via kontaktformularen på denne hjemmeside."
+          },
+          {
+            "heading": "2. Hvilke oplysninger vi indsamler",
+            "text": "Vi behandler navn, telefonnummer, e-mail, adresseområde og opgavebeskrivelse. Oplysningerne bruges kun til at besvare din henvendelse og udarbejde et eventuelt tilbud."
+          },
+          {
+            "heading": "3. Formål og opbevaring",
+            "text": "Oplysninger opbevares kun så længe det er nødvendigt for dialog, tilbudsproces og opfølgning. Oplysninger deles ikke med tredjepart uden lovligt grundlag."
+          },
+          {
+            "heading": "4. Dine rettigheder",
+            "text": "Du har ret til indsigt, rettelse og sletning af dine oplysninger. Kontakt os, hvis du ønsker at gøre brug af dine rettigheder."
+          },
+          {
+            "heading": "5. Kontakt",
+            "text": "Ved spørgsmål om databehandling kan du kontakte os via telefon eller e-mail på kontaktsiden."
+          }
+        ]
+      }
+    },
+    "customPages": [
+      {
+        "slug": "entreprise-og-anlaeg",
+        "menuLabel": "Entreprise",
+        "title": "Entreprise og anlæg med fokus på kvalitet, fremdrift og aflevering",
+        "intro": "TB Entreprise hjælper kunder, der har brug for en samarbejdspartner til udearealer, anlæg og mindre entrepriser, hvor flere praktiske hensyn skal spille sammen.",
+        "showInMenu": true,
+        "sections": [
+          {
+            "heading": "Helhedsorienteret planlægning",
+            "text": "Vi starter med at afklare opgaven grundigt, så adgangsforhold, materialer, niveauforskelle, vandhåndtering og den daglige brug af arealet bliver tænkt ind fra begyndelsen.",
+            "bullets": [
+              "Besigtigelse og afklaring",
+              "Materialer, adgang og logistik",
+              "Realistisk tidsplan og tydeligt omfang"
+            ]
+          },
+          {
+            "heading": "Udførelse med styring",
+            "text": "Når projektet går i gang, arbejder vi struktureret med fokus på fremdrift, kvalitet og koordinering. Det giver et mere sikkert forløb og et resultat, der hænger sammen fra bund til overflade.",
+            "bullets": [
+              "Fokus på kvalitet i hele processen",
+              "Tydelig kontaktperson og opfølgning",
+              "Ordentlig oprydning og aflevering"
+            ]
+          },
+          {
+            "heading": "Løsninger til flere kundetyper",
+            "text": "Vi løser opgaver for private boligejere, erhverv, boligforeninger og institutioner, som har brug for en praktisk og pålidelig leverandør med blik for helheden.",
+            "bullets": [
+              "Private boliger og nyanlæg",
+              "Erhverv og institutioner",
+              "Boligforeninger og gårdmiljøer"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "erhverv-og-drift",
+        "menuLabel": "Erhverv",
+        "title": "Erhverv og drift af udearealer med stabil kvalitet og professionelt udtryk",
+        "intro": "For erhverv, boligforeninger og institutioner er udearealet en del af den samlede brugeroplevelse. Derfor skal drift og vedligehold være både funktionelt og visuelt stærkt.",
+        "showInMenu": true,
+        "sections": [
+          {
+            "heading": "Drift med faste standarder",
+            "text": "Vi tilrettelægger vedligeholdelsen, så ejendommen fremstår velholdt i hverdagen. Det skaber et bedre første indtryk for beboere, brugere, kunder og medarbejdere.",
+            "bullets": [
+              "Græs, hæk, bede og renhold",
+              "Skarpe serviceintervaller",
+              "Tydelig forventningsafstemning"
+            ]
+          },
+          {
+            "heading": "Forbedringer og opgraderinger",
+            "text": "Ud over den løbende drift løser vi også opgaver med opgradering af eksisterende udearealer, ny belægning, beskæring, klargøring og andre forbedringer, der øger kvaliteten af ejendommen.",
+            "bullets": [
+              "Opgradering af adgangsarealer",
+              "Fornyelse af gårdrum og udezoner",
+              "Kombination af drift og projektarbejde"
+            ]
+          },
+          {
+            "heading": "En samarbejdspartner med overblik",
+            "text": "Vi arbejder med fokus på kommunikation, planlægning og aflevering, så ejendomsansvarlige og bestyrelser får et forløb, der er let at overskue og let at følge op på.",
+            "bullets": [
+              "Fast dialog og status",
+              "Realistiske tidsplaner",
+              "Professionel levering og opfølgning"
+            ]
+          }
+        ]
+      },
+      {
+        "slug": "projektforloeb",
+        "menuLabel": "Projektforløb",
+        "title": "Projektforløb fra første besigtigelse til professionel aflevering",
+        "intro": "Et godt projektforløb handler om mere end at få arbejdet udført. Det handler om at skabe overblik, tryghed og et resultat, der er gennemtænkt hele vejen igennem.",
+        "showInMenu": true,
+        "sections": [
+          {
+            "heading": "Besigtigelse og behovsafklaring",
+            "text": "Vi gennemgår opgaven på stedet og taler om brug, ønsker, tekniske forhold og de praktiske rammer. Det danner grundlag for en løsning, der passer til virkeligheden.",
+            "bullets": [
+              "Afklaring af omfang og prioriteter",
+              "Vurdering af adgang og materialer",
+              "Tidligt fokus på kvalitet og funktion"
+            ]
+          },
+          {
+            "heading": "Tilbud med tydeligt indhold",
+            "text": "Du modtager et tilbud, hvor omfang, løsning og forventet tidslinje er beskrevet klart. Det giver et bedre grundlag for at tage stilling til projektet.",
+            "bullets": [
+              "Klar beskrivelse af leverancen",
+              "Gennemsigtig forventningsafstemning",
+              "Enkelt grundlag for beslutning"
+            ]
+          },
+          {
+            "heading": "Udførelse, aflevering og opfølgning",
+            "text": "Under arbejdet holder vi fokus på fremdrift, kommunikation og kvalitet. Vi afslutter med oprydning, gennemgang og en aflevering, der er klar til brug fra første dag.",
+            "bullets": [
+              "Struktureret gennemførelse",
+              "Professionel finish og oprydning",
+              "Aflevering med fokus på helheden"
+            ]
+          }
+        ]
+      }
+    ],
+    "seo": {
+      "siteUrl": "https://tbgruppen.dk",
+      "title": "TB Entreprise | Belægning, anlæg og vedligehold i Herlev",
+      "description": "TB Entreprise leverer professionel belægning, anlæg, træarbejde, haveservice og mindre entrepriser i Herlev og Storkøbenhavn. Få et uforpligtende tilbud.",
+      "locale": "da_DK"
+    }
+  },
+  "updatedAt": "2026-03-09T12:50:18.346Z"
+}
