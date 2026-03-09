@@ -25,7 +25,7 @@ export default function QuoteSection({ company, quoteForm, templateId, compact =
           {!compact ? (
             <ScrollReveal delay={180} className="space-y-4 text-sm text-[color:var(--site-muted)]">
               <p>
-                Har du brug for hurtig afklaring? Ring direkte paa{' '}
+                Har du brug for hurtig afklaring? Ring direkte på{' '}
                 <Link className="font-bold text-[color:var(--site-primary-strong)] transition-colors hover:text-[color:var(--site-primary)]" href={company.phoneHref}>
                   {company.phoneDisplay}
                 </Link>

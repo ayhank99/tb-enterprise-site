@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { CMS_AUTH_COOKIE, createSessionValue, verifyPassword } from '@/lib/admin-auth'
+import { CMS_AUTH_COOKIE, createSessionValue, isCmsPasswordConfigured, verifyPassword } from '@/lib/admin-auth'
 
 export const runtime = 'nodejs'
 
@@ -8,6 +8,15 @@ type LoginBody = {
 }
 
 export async function POST(request: NextRequest) {
+  if (!isCmsPasswordConfigured()) {
+    return NextResponse.json(
+      {
+        error: 'CMS-adgang er ikke konfigureret på serveren. Tilføj CMS_PASSWORD i Vercel Project Settings og deploy igen.',
+      },
+      { status: 500 }
+    )
+  }
+
   let body: LoginBody
 
   try {
@@ -33,4 +42,3 @@ export async function POST(request: NextRequest) {
 
   return response
 }
-

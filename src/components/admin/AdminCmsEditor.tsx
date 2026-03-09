@@ -76,7 +76,7 @@ const homeSectionCatalog: Record<
   },
   trustStrip: {
     label: 'Intro & kontakt',
-    description: 'Builderz-inspireret velkomstblok med kontaktbjaelke, intro og billedsektion.',
+    description: 'Builderz-inspireret velkomstblok med kontaktbjælke, intro og billedsektion.',
     preview: 'linear-gradient(125deg,#f4f6fb 0%,#e3e9f8 100%)',
     variants: [],
   },
@@ -93,8 +93,8 @@ const homeSectionCatalog: Record<
     variants: ['masonry', 'grid', 'carousel'],
   },
   process: {
-    label: 'Hvorfor vaelge os',
-    description: 'Fordelssektion med fremhaevede styrker omkring et centralt billede.',
+    label: 'Hvorfor vælge os',
+    description: 'Fordelssektion med fremhævede styrker omkring et centralt billede.',
     preview: 'linear-gradient(125deg,#fff7e7 0%,#f7e2b6 50%,#e4b85a 100%)',
     variants: ['steps', 'timeline'],
   },
@@ -282,11 +282,11 @@ function CurrentMediaPreview({ value, label, kind }: { value: string; label: str
 function MediaPickerField({ label, value, onChange, options, placeholder, kind }: MediaPickerFieldProps) {
   const [open, setOpen] = useState(false)
   const listId = kind === 'video' ? 'media-video-list' : 'media-image-list'
-  const pickerTitle = kind === 'video' ? 'Videovaelger' : 'Billedvaelger'
+  const pickerTitle = kind === 'video' ? 'Videovælger' : 'Billedvælger'
   const pickerHelp =
     kind === 'video'
-      ? 'Vaelg en video fra mediebiblioteket eller indsæt en direkte video-URL.'
-      : 'Vaelg et billede fra mediebiblioteket eller eksisterende galleri.'
+      ? 'Vælg en video fra mediebiblioteket eller indsæt en direkte video-URL.'
+      : 'Vælg et billede fra mediebiblioteket eller eksisterende galleri.'
   const activeLabel = kind === 'video' ? 'Aktiv video' : 'Aktivt billede'
   const emptyLabel = kind === 'video' ? 'Der er endnu ingen videoer i biblioteket.' : 'Der er endnu ingen billeder i biblioteket eller galleriet.'
 
@@ -305,7 +305,7 @@ function MediaPickerField({ label, value, onChange, options, placeholder, kind }
             className="rounded-lg border border-[color:var(--site-border)] px-3 py-2 text-xs font-semibold text-[color:var(--site-text)]"
             onClick={() => setOpen((current) => !current)}
           >
-            {open ? 'Skjul vaelger' : 'Aabn vaelger'}
+            {open ? 'Skjul vælger' : 'Åbn vælger'}
           </button>
         </div>
 

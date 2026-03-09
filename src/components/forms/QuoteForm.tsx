@@ -94,7 +94,7 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
 
     if (QUOTE_SUBMISSION_DISABLED) {
       setSubmitState('success')
-      setSubmitMessage('Previewversionen sender ikke e-mail endnu. Brug kontaktoplysningerne pa siden for direkte henvendelser.')
+      setSubmitMessage('Previewversionen sender ikke e-mail endnu. Brug kontaktoplysningerne på siden ved direkte henvendelser.')
       return
     }
 
@@ -128,7 +128,7 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
         const retryAfter = response.headers.get('Retry-After')
         const rateLimitMessage =
           response.status === 429 && retryAfter
-            ? `For mange foresporgsler. Prov igen om ${retryAfter} sekunder.`
+            ? `For mange forespørgsler. Prøv igen om ${retryAfter} sekunder.`
             : null
 
         setSubmitState('error')
@@ -150,7 +150,7 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
       <div className="rounded border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
         {QUOTE_SUBMISSION_DISABLED
           ? 'Dette er en previewversion. Formularen vises korrekt, men sender ikke e-mail fra denne testadresse.'
-          : 'Beskriv opgaven kort og praecist. Vi sender henvendelsen direkte til virksomheden og bekraefter modtagelsen pa e-mail.'}
+          : 'Beskriv opgaven kort og præcist. Vi sender henvendelsen direkte til virksomheden og bekræfter modtagelsen på e-mail.'}
       </div>
 
       <fieldset disabled={isSubmitting} className="space-y-5">

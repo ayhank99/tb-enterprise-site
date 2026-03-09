@@ -98,7 +98,7 @@ export default function ProjectHighlight({ images, templateId, block, variant = 
             Klik et projekt for detaljer
           </span>
           <Link href="/galleri" className="btn-secondary">
-            Gaa til fuldt galleri
+            Gå til fuldt galleri
           </Link>
         </ScrollReveal>
       </Container>

@@ -11,7 +11,7 @@ import { defaultSiteContent } from '@/lib/site-data'
 export const metadata: Metadata = {
   title: 'Ydelser',
   description:
-    'Se vores ydelser inden for belaegning, anlaeg, graespleje, traearbejde og mindre entrepriser.',
+    'Se vores ydelser inden for belægning, anlæg, græspleje, træarbejde og mindre entrepriser.',
   alternates: {
     canonical: withSiteBasePath('/ydelser'),
   },
@@ -36,7 +36,7 @@ export default async function ServicesPage() {
 
       <ServiceCards
         title="Alle vores ydelser"
-        intro="Klik ind paa den enkelte ydelse for at se omfang, leverance og hvad loesningen passer bedst til."
+        intro="Klik ind på den enkelte ydelse for at se omfang, leverance og hvad løsningen passer bedst til."
         services={content.services}
         templateId={state.activeTemplate}
       />

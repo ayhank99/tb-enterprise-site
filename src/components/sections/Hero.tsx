@@ -50,12 +50,12 @@ export default function Hero({ hero }: HeroProps) {
       </div>
 
       <Container className="relative py-24 md:py-32 lg:py-40">
-        <div className="max-w-3xl">
+        <div className="max-w-[72rem]">
           <p className="animate-fade-in-up text-sm font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary-strong)] md:text-base">
             {hero.eyebrow}
           </p>
 
-          <h1 className="animate-fade-in-up animate-delay-100 mt-5 font-display text-5xl font-extrabold leading-[0.94] tracking-[-0.07em] text-[color:var(--site-dark)] md:text-6xl lg:text-[5.4rem]">
+          <h1 className="animate-fade-in-up animate-delay-100 mt-5 max-w-[13ch] font-display text-[clamp(3.4rem,7vw,4.9rem)] font-extrabold leading-[0.92] tracking-[-0.075em] text-[color:var(--site-dark)]">
             {hero.title}
           </h1>
 

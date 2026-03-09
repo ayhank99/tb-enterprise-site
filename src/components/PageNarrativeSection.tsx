@@ -49,7 +49,7 @@ export default function PageNarrativeSection({
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/kontakt#tilbudsformular" className="btn-primary">
-                  Faa et tilbud
+                  Få et tilbud
                 </Link>
                 <Link
                   href="/galleri"
@@ -67,7 +67,7 @@ export default function PageNarrativeSection({
             <div className="absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-white/15 bg-[color:var(--site-dark)]/82 px-5 py-4 text-white backdrop-blur-sm">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">TB Entreprise</p>
               <p className="mt-2 text-sm leading-relaxed text-[color:var(--site-on-dark-soft)]">
-                Professionelle loesninger inden for belaegning, anlaeg, drift og mindre entrepriser i Storkoebenhavn.
+                Professionelle løsninger inden for belægning, anlæg, drift og mindre entrepriser i Storkøbenhavn.
               </p>
             </div>
           </ScrollReveal>

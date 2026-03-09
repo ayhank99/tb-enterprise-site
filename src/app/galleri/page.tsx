@@ -10,7 +10,7 @@ import { defaultSiteContent } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Galleri',
-  description: 'Udvalgte projekter inden for belaegning, anlaeg, traearbejde, vedligehold og opgradering af udearealer.',
+  description: 'Udvalgte projekter inden for belægning, anlæg, træarbejde, vedligehold og opgradering af udearealer.',
   alternates: {
     canonical: withSiteBasePath('/galleri'),
   },

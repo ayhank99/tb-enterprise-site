@@ -68,7 +68,7 @@ function TopBar({ company }: { company: SiteContent['company'] }) {
               </svg>
             </span>
             <div>
-              <span className="block text-sm font-semibold text-[color:var(--site-dark)]/68">Aabningstid</span>
+              <span className="block text-sm font-semibold text-[color:var(--site-dark)]/68">Åbningstid</span>
               <span className="block text-xl font-bold tracking-[-0.03em] text-[color:var(--site-dark)]">{company.openingHours}</span>
             </div>
           </div>
@@ -131,7 +131,7 @@ function DesktopNav({
   }
 
   return (
-    <nav aria-label="Primaer navigation" className="hidden lg:block">
+    <nav aria-label="Primær navigation" className="hidden lg:block">
       <ul className="flex items-center gap-0.5 xl:gap-1">
         {items.map((item) => {
           const active = itemIsActive(pathname, item)
@@ -182,7 +182,7 @@ function DesktopNav({
                       <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">Undermenu</p>
                       <p className="mt-2 text-base font-semibold text-white">{item.label}</p>
                       <p className="mt-1 text-xs leading-relaxed text-white/62">
-                        Vaelg en underside eller gaa til oversigten for at se hele omraadet.
+                        Vælg en underside eller gå til oversigten for at se hele området.
                       </p>
                     </div>
 
@@ -496,7 +496,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
 
                   <button
                     type="button"
-                    aria-label="Aabn menu"
+                    aria-label="Åbn menu"
                     aria-expanded={mobileOpen}
                     onClick={() => setMobileOpen((current) => !current)}
                     className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white transition-colors hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]"

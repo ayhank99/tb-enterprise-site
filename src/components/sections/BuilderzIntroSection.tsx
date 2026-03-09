@@ -40,7 +40,7 @@ export default function BuilderzIntroSection({
           <ScrollReveal as="div" variant="left" className="bg-[color:var(--site-dark)] text-white">
             <Container className="flex min-h-[90px] items-center py-6">
               <p className="max-w-4xl text-lg font-bold leading-tight md:text-2xl">
-                Vi er klar til at levere holdbare loesninger med fokus paa kvalitet, finish og tydelige aftaler.
+                Vi er klar til at levere holdbare løsninger med fokus på kvalitet, finish og tydelige aftaler.
               </p>
             </Container>
           </ScrollReveal>
@@ -82,7 +82,7 @@ export default function BuilderzIntroSection({
 
             <Link
               href="/om-os"
-              aria-label="Laes mere om virksomheden"
+              aria-label="Læs mere om virksomheden"
               className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-2xl transition-transform hover:scale-105"
             >
               <svg viewBox="0 0 24 24" className="h-10 w-10" fill="currentColor">

@@ -5,7 +5,17 @@ export const CMS_AUTH_COOKIE = 'tb_cms_auth'
 const DEFAULT_PASSWORD = 'tbgruppen-2026-change-this'
 
 function getConfiguredPassword() {
-  return process.env.CMS_PASSWORD?.trim() || DEFAULT_PASSWORD
+  const configuredPassword = process.env.CMS_PASSWORD?.trim()
+
+  if (configuredPassword) {
+    return configuredPassword
+  }
+
+  return process.env.NODE_ENV === 'production' ? '' : DEFAULT_PASSWORD
+}
+
+export function isCmsPasswordConfigured() {
+  return getConfiguredPassword().length > 0
 }
 
 function createDigest(input: string) {
@@ -28,7 +38,13 @@ export function createSessionValue() {
 }
 
 export function verifyPassword(password: string) {
-  return safeCompare(createDigest(password), createDigest(getConfiguredPassword()))
+  const configuredPassword = getConfiguredPassword()
+
+  if (!configuredPassword) {
+    return false
+  }
+
+  return safeCompare(createDigest(password), createDigest(configuredPassword))
 }
 
 export async function isAdminAuthenticated() {
@@ -41,4 +57,3 @@ export async function isAdminAuthenticated() {
 
   return safeCompare(session, createSessionValue())
 }
-

@@ -9,7 +9,7 @@ import { defaultSiteContent } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Kontakt',
-  description: 'Kontakt TB Entreprise for besigtigelse og uforpligtende tilbud paa belaegning, vedligehold og mindre entrepriser.',
+  description: 'Kontakt TB Entreprise for besigtigelse og et uforpligtende tilbud på belægning, vedligehold og mindre entrepriser.',
   alternates: {
     canonical: withSiteBasePath('/kontakt'),
   },

@@ -225,11 +225,11 @@ function send_mail_message(
 function build_admin_email(array $payload, array $config): array
 {
     $submittedAt = format_timestamp();
-    $subject = 'Ny tilbudsforesporgsel fra ' . $payload['name'] . ' (' . $payload['location'] . ')';
+    $subject = 'Ny tilbudsforespørgsel fra ' . $payload['name'] . ' (' . $payload['location'] . ')';
     $taskHtml = nl2br(escape_html($payload['task']));
 
     $text = implode("\n", [
-        'Ny tilbudsforesporgsel',
+        'Ny tilbudsforespørgsel',
         '',
         'Modtaget: ' . $submittedAt,
         'Navn: ' . $payload['name'],
@@ -246,11 +246,11 @@ function build_admin_email(array $payload, array $config): array
         <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #dbe4f0;">
           <div style="background:#081a33;padding:24px 28px;">
             <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#f8b133;">Ny henvendelse</p>
-            <h1 style="margin:0;font-size:24px;line-height:1.3;color:#ffffff;">Ny tilbudsforesporgsel fra ' . escape_html($payload['name']) . '</h1>
+            <h1 style="margin:0;font-size:24px;line-height:1.3;color:#ffffff;">Ny tilbudsforespørgsel fra ' . escape_html($payload['name']) . '</h1>
           </div>
           <div style="padding:28px;">
             <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#475569;">
-              Der er kommet en ny foresporgsel via formularen pa ' . escape_html($config['from_name']) . '.
+              Der er kommet en ny forespørgsel via formularen på ' . escape_html($config['from_name']) . '.
             </p>
             <table style="width:100%;border-collapse:collapse;font-size:14px;">
               <tbody>
@@ -280,13 +280,13 @@ function build_confirmation_email(array $payload): array
 {
     $submittedAt = format_timestamp();
     $taskHtml = nl2br(escape_html($payload['task']));
-    $subject = 'Vi har modtaget din foresporgsel';
+    $subject = 'Vi har modtaget din forespørgsel';
 
     $text = implode("\n", [
         'Hej ' . $payload['name'] . ',',
         '',
         'Tak for din henvendelse.',
-        'Vi har modtaget din foresporgsel den ' . $submittedAt . ' og vender tilbage hurtigst muligt.',
+        'Vi har modtaget din forespørgsel den ' . $submittedAt . ' og vender tilbage hurtigst muligt.',
         '',
         'Din opsummering:',
         'Telefon: ' . $payload['phone'],
@@ -299,11 +299,11 @@ function build_confirmation_email(array $payload): array
         <div style="max-width:680px;margin:0 auto;background:#ffffff;border:1px solid #dbe4f0;">
           <div style="background:#081a33;padding:24px 28px;">
             <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#f8b133;">Tak for din henvendelse</p>
-            <h1 style="margin:0;font-size:24px;line-height:1.3;color:#ffffff;">Vi har modtaget din foresporgsel</h1>
+            <h1 style="margin:0;font-size:24px;line-height:1.3;color:#ffffff;">Vi har modtaget din forespørgsel</h1>
           </div>
           <div style="padding:28px;">
             <p style="margin:0 0 18px;font-size:15px;line-height:1.7;color:#334155;">
-              Hej ' . escape_html($payload['name']) . ', tak for din besked. Vi har registreret din foresporgsel den
+              Hej ' . escape_html($payload['name']) . ', tak for din besked. Vi har registreret din forespørgsel den
               <strong> ' . escape_html($submittedAt) . '</strong> og vender tilbage hurtigst muligt.
             </p>
             <div style="margin:24px 0;padding:20px;background:#f8fafc;border:1px solid #e2e8f0;">
@@ -344,7 +344,7 @@ $sent = send_mail_message(
 );
 
 if (!$sent) {
-    json_response(502, ['error' => 'Foresporgslen kunne ikke sendes lige nu. Prov igen om lidt eller kontakt os direkte.']);
+    json_response(502, ['error' => 'Forespørgslen kunne ikke sendes lige nu. Prøv igen om lidt eller kontakt os direkte.']);
 }
 
 if (($config['send_confirmation'] ?? true) === true) {

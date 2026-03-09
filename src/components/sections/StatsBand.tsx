@@ -7,10 +7,10 @@ type StatsBandProps = {
 }
 
 const stats = [
-  { value: '15+', label: 'AARS ERFARING' },
+  { value: '15+', label: 'ÅRS ERFARING' },
   { value: '500+', label: 'GLADE KUNDER' },
   { value: '100%', label: 'KVALITETSFOKUS' },
-  { value: '24/7', label: 'TILGAENGELIG' },
+  { value: '24/7', label: 'TILGÆNGELIG' },
 ]
 
 const icons = [
@@ -49,7 +49,7 @@ export default function StatsBand({ points }: StatsBandProps) {
       <Container className="relative py-12 md:py-16">
         <ScrollReveal className="mb-10 grid gap-4 border-b border-white/15 pb-6 lg:grid-cols-[1fr_260px] lg:items-center">
           <p className="text-lg font-bold text-white md:text-2xl">
-            Vi leverer kvalitet og paalidelighed i hvert eneste projekt.
+            Vi leverer kvalitet og pålidelighed i hvert eneste projekt.
           </p>
           <div className="justify-self-start lg:justify-self-end">
             <Link

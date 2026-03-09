@@ -8,7 +8,7 @@ import { defaultSiteContent } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Ekstra sider',
-  description: 'Oversigt over sider om entreprise, erhverv og projektforloeb hos TB Entreprise.',
+  description: 'Oversigt over sider om entreprise, erhverv og projektforløb hos TB Entreprise.',
   alternates: {
     canonical: withSiteBasePath('/sider'),
   },

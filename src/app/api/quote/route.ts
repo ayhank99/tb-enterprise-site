@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
   if (!rateLimit.ok) {
     return NextResponse.json(
       {
-        error: 'For mange foresporgsler. Prov igen senere.',
+        error: 'For mange forespørgsler. Prøv igen senere.',
       },
       {
         status: 429,
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
   return NextResponse.json(
     {
       ok: true,
-      message: 'Udviklingsmiljo: formularen er valideret. Production skal bruge quote-handler.php til rigtig mail.',
+      message: 'Udviklingsmiljø: formularen er valideret. Produktion skal bruge quote-handler.php til rigtig mail.',
     },
     { status: 200 }
   )

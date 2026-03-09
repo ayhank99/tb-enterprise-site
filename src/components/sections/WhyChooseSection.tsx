@@ -18,8 +18,8 @@ const reasonTitles = [
   'Stabil kvalitet',
   'Professionel kommunikation',
   'Ordentlig aflevering',
-  'Fleksibel planlaegning',
-  'Ansvarlig udfoerelse',
+  'Fleksibel planlægning',
+  'Ansvarlig udførelse',
 ]
 
 const reasonIcons = [

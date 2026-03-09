@@ -9,7 +9,7 @@ import { defaultSiteContent } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Om os',
-  description: 'Laes om TB Entreprise og vores tilgang til belaegning, anlaeg, vedligehold og mindre entrepriser.',
+  description: 'Læs om TB Entreprise og vores tilgang til belægning, anlæg, vedligehold og mindre entrepriser.',
   alternates: {
     canonical: withSiteBasePath('/om-os'),
   },

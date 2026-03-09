@@ -46,6 +46,10 @@ export default function AdminLoginForm() {
         <h1 className="mt-2 font-display text-3xl">Admin login</h1>
       </div>
 
+      <p className="rounded-xl border border-amber-300/40 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+        Hvis login ikke virker på Vercel, skal `CMS_PASSWORD` være oprettet i projektets Environment Variables.
+      </p>
+
       <div>
         <label htmlFor="password" className="form-label">
           Adgangskode
