@@ -36,10 +36,10 @@ export default function BuilderzIntroSection({
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="grid lg:grid-cols-[1fr_320px]">
+        <div className="grid lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_320px]">
           <ScrollReveal as="div" variant="left" className="bg-[color:var(--site-dark)] text-white">
             <Container className="flex min-h-[90px] items-center py-6">
-              <p className="max-w-4xl text-lg font-bold leading-tight md:text-2xl">
+              <p className="max-w-4xl text-base font-bold leading-tight sm:text-lg md:text-2xl">
                 Vi er klar til at levere holdbare løsninger med fokus på kvalitet, finish og tydelige aftaler.
               </p>
             </Container>
@@ -48,7 +48,7 @@ export default function BuilderzIntroSection({
           <ScrollReveal as="div" variant="right" delay={120}>
             <Link
               href="/kontakt"
-              className="relative flex items-center justify-center gap-3 bg-[color:var(--site-primary)] px-8 py-6 text-lg font-bold text-[color:var(--site-dark)] transition-opacity hover:opacity-90 md:text-2xl"
+              className="relative flex items-center justify-center gap-3 bg-[color:var(--site-primary)] px-6 py-5 text-base font-bold text-[color:var(--site-dark)] transition-opacity hover:opacity-90 sm:px-8 sm:py-6 sm:text-lg md:text-2xl"
             >
               <span
                 className="absolute left-[-3.5rem] top-0 hidden h-full w-16 bg-[color:var(--site-primary)] lg:block"
@@ -83,7 +83,7 @@ export default function BuilderzIntroSection({
             <Link
               href="/om-os"
               aria-label="Læs mere om virksomheden"
-              className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-2xl transition-transform hover:scale-105"
+              className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-2xl transition-transform hover:scale-105 sm:h-24 sm:w-24"
             >
               <svg viewBox="0 0 24 24" className="h-10 w-10" fill="currentColor">
                 <path d="M8 5l10 7-10 7V5z" />

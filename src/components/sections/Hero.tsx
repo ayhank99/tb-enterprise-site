@@ -49,31 +49,31 @@ export default function Hero({ hero }: HeroProps) {
         />
       </div>
 
-      <Container className="relative py-24 md:py-32 lg:py-40">
-        <div className="max-w-[72rem]">
-          <p className="animate-fade-in-up text-sm font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary-strong)] md:text-base">
+      <Container className="relative py-16 sm:py-20 md:py-28 lg:py-40">
+        <div className="max-w-[60rem]">
+          <p className="animate-fade-in-up text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary-strong)] sm:text-sm md:text-base">
             {hero.eyebrow}
           </p>
 
-          <h1 className="animate-fade-in-up animate-delay-100 mt-5 max-w-[15ch] font-display text-[clamp(1.9rem,4.2vw,2.9rem)] font-extrabold leading-[0.94] tracking-[-0.06em] text-[color:var(--site-dark)]">
+          <h1 className="animate-fade-in-up animate-delay-100 mt-4 max-w-[12ch] font-display text-[clamp(1.55rem,8vw,2.9rem)] font-extrabold leading-[0.94] tracking-[-0.06em] text-[color:var(--site-dark)] sm:mt-5 sm:max-w-[13ch] md:max-w-[15ch]">
             {hero.title}
           </h1>
 
-          <p className="animate-fade-in-up animate-delay-200 mt-7 max-w-2xl text-lg leading-relaxed text-[color:var(--site-muted)] md:text-xl">
+          <p className="animate-fade-in-up animate-delay-200 mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--site-muted)] sm:mt-6 sm:text-lg md:mt-7 md:text-xl">
             {hero.text}
           </p>
 
-          <div className="animate-fade-in-up animate-delay-300 mt-10 flex flex-wrap gap-4">
+          <div className="animate-fade-in-up animate-delay-300 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href={hero.primaryCtaHref}
-              className="inline-flex items-center bg-[color:var(--site-primary)] px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-primary-strong)]"
+              className="inline-flex w-full items-center justify-center bg-[color:var(--site-primary)] px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] sm:w-auto sm:px-8"
             >
               {hero.primaryCtaLabel}
             </Link>
 
             <Link
               href={hero.secondaryCtaHref}
-              className="inline-flex items-center border-2 border-[color:var(--site-dark)] px-8 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-dark)] hover:text-white"
+              className="inline-flex w-full items-center justify-center border-2 border-[color:var(--site-dark)] px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-dark)] hover:text-white sm:w-auto sm:px-8"
             >
               {hero.secondaryCtaLabel}
             </Link>

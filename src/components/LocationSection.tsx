@@ -65,7 +65,7 @@ export default function LocationSection({ company }: LocationSectionProps) {
 
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.9fr]">
           <ScrollReveal variant="image" className="overflow-hidden rounded-[1.6rem] border border-[color:var(--site-border)] bg-white shadow-[var(--site-card-shadow-hover)]">
-            <div className="flex items-center justify-between border-b border-[color:var(--site-border)] bg-[color:var(--site-dark)] px-5 py-4 text-white">
+            <div className="flex flex-col items-start gap-3 border-b border-[color:var(--site-border)] bg-[color:var(--site-dark)] px-5 py-4 text-white sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">Google Maps</p>
                 <h2 className="mt-1 text-xl font-bold">Besøg os på adressen</h2>
@@ -80,7 +80,7 @@ export default function LocationSection({ company }: LocationSectionProps) {
               </a>
             </div>
 
-            <div className="relative h-[360px] bg-[color:var(--site-dark)] sm:h-[420px]">
+            <div className="relative h-[300px] bg-[color:var(--site-dark)] sm:h-[420px]">
               <iframe
                 title={`Google Maps for ${company.name}`}
                 src={mapEmbedUrl}

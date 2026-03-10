@@ -19,7 +19,7 @@ function FooterCtaBar({ company }: { company: SiteContent['company'] }) {
         {/* Left: Request a Quote — Dark */}
         <Link
           href="/kontakt#tilbudsformular"
-          className="group flex flex-1 items-center justify-center gap-4 bg-[color:var(--site-dark)] px-8 py-6 transition-all duration-300 hover:bg-[color:var(--site-dark-soft)]"
+          className="group flex flex-1 items-center justify-center gap-3 bg-[color:var(--site-dark)] px-6 py-5 text-center transition-all duration-300 hover:bg-[color:var(--site-dark-soft)] sm:gap-4 sm:px-8 sm:py-6"
         >
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border-2 border-[color:var(--site-primary)]/40 text-[color:var(--site-primary)] transition-all duration-300 group-hover:border-[color:var(--site-primary)] group-hover:bg-[color:var(--site-primary)] group-hover:text-[color:var(--site-dark)]">
             <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -31,7 +31,7 @@ function FooterCtaBar({ company }: { company: SiteContent['company'] }) {
               <line x1="12" y1="12" x2="12" y2="16" />
             </svg>
           </span>
-          <span className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-[color:var(--site-primary)] sm:text-xl">
+          <span className="text-base font-bold text-white transition-colors duration-300 group-hover:text-[color:var(--site-primary)] sm:text-xl">
             Anmod om tilbud
           </span>
         </Link>
@@ -47,14 +47,14 @@ function FooterCtaBar({ company }: { company: SiteContent['company'] }) {
         {/* Right: Contact — Gold */}
         <Link
           href={company.phoneHref}
-          className="group flex flex-1 items-center justify-center gap-4 bg-[color:var(--site-primary)] px-8 py-6 transition-all duration-300 hover:bg-[color:var(--site-primary-strong)]"
+          className="group flex flex-1 items-center justify-center gap-3 bg-[color:var(--site-primary)] px-6 py-5 text-center transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] sm:gap-4 sm:px-8 sm:py-6"
         >
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border-2 border-[color:var(--site-dark)]/20 text-[color:var(--site-dark)] transition-all duration-300 group-hover:border-[color:var(--site-dark)] group-hover:bg-[color:var(--site-dark)] group-hover:text-[color:var(--site-primary)]">
             <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
           </span>
-          <span className="text-lg font-bold text-[color:var(--site-dark)] sm:text-xl">
+          <span className="text-base font-bold text-[color:var(--site-dark)] sm:text-xl">
             Ring {company.phoneDisplay}
           </span>
         </Link>
@@ -231,7 +231,7 @@ export default function Footer({ company, navItems }: FooterProps) {
               <FooterHeading>Om os</FooterHeading>
 
               {company.logoUrl ? (
-                <div className="relative mb-5 h-16 w-[240px] max-w-full">
+                <div className="relative mb-5 h-14 w-[190px] max-w-full sm:h-16 sm:w-[240px]">
                   <Image
                     src={withSiteBasePath(company.logoUrl)}
                     alt={`${company.name} logo`}
@@ -305,7 +305,7 @@ export default function Footer({ company, navItems }: FooterProps) {
         {/* Back to top button */}
         <a
           href="#"
-          className="fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-lg bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-lg transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] hover:-translate-y-1 hover:shadow-xl"
+          className="fixed bottom-4 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-lg bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-lg transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] hover:-translate-y-1 hover:shadow-xl sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
           aria-label="Scroll til toppen"
         >
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

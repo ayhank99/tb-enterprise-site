@@ -24,7 +24,7 @@ function ProjectCard({ image, tall = false }: { image: ProjectImage; tall?: bool
   return (
     <Link
       href={image.href ?? '/galleri'}
-      className={`group relative block overflow-hidden rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow)] transition-all duration-500 hover:shadow-[var(--site-card-shadow-hover)] ${tall ? 'h-[390px]' : 'h-[290px]'}`}
+      className={`group relative block overflow-hidden rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow)] transition-all duration-500 hover:shadow-[var(--site-card-shadow-hover)] ${tall ? 'h-[300px] sm:h-[360px] lg:h-[390px]' : 'h-[220px] sm:h-[270px] lg:h-[290px]'}`}
     >
       <Image
         src={withSiteBasePath(image.src)}
@@ -64,9 +64,9 @@ export default function ProjectHighlight({ images, templateId, block, variant = 
         <SectionHeading eyebrow={block.eyebrow} title={block.title} intro={block.intro} align="center" />
 
         {variant === 'carousel' ? (
-          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pr-1 sm:gap-5">
             {source.map((image, index) => (
-              <ScrollReveal key={image.src} variant="image" delay={index * 90} className="w-[84%] shrink-0 snap-start sm:w-[58%] lg:w-[36%]">
+              <ScrollReveal key={image.src} variant="image" delay={index * 90} className="w-[88%] shrink-0 snap-start min-[430px]:w-[78%] sm:w-[58%] lg:w-[36%]">
                 <ProjectCard image={image} tall={index % 2 === 0} />
               </ScrollReveal>
             ))}

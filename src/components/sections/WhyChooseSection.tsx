@@ -96,7 +96,7 @@ export default function WhyChooseSection({ title, reasons, galleryImages, hero }
       <Container>
         <SectionHeading eyebrow="Fordele" title={title} align="center" />
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_minmax(280px,420px)_1fr] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[1fr_minmax(280px,420px)_1fr] lg:items-start lg:gap-10">
           <div className="space-y-10">
             {left.map((entry, index) => (
               <ReasonCard key={entry.title} title={entry.title} text={entry.text} icon={entry.icon} align="left" delay={index * 100} />
@@ -104,8 +104,8 @@ export default function WhyChooseSection({ title, reasons, galleryImages, hero }
           </div>
 
           <ScrollReveal variant="image" delay={120} className="relative mx-auto w-full max-w-[420px]">
-            <div className="absolute inset-x-8 bottom-0 h-12 bg-[color:var(--site-primary)]" />
-            <div className="relative h-[520px] overflow-hidden rounded-[220px_220px_0_0] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]">
+            <div className="absolute inset-x-6 bottom-0 h-10 bg-[color:var(--site-primary)] sm:inset-x-8 sm:h-12" />
+            <div className="relative h-[340px] overflow-hidden rounded-[160px_160px_0_0] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)] sm:h-[440px] sm:rounded-[220px_220px_0_0] lg:h-[520px]">
               <Image
                 src={withSiteBasePath(featureImage)}
                 alt={title}

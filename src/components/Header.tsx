@@ -36,8 +36,8 @@ function BrandMark({ company }: { company: SiteContent['company'] }) {
         width={980}
         height={180}
         priority
-        sizes="(max-width: 1024px) 56vw, 18rem"
-        className="h-auto w-[clamp(12.5rem,20vw,18rem)] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+        sizes="(max-width: 640px) 72vw, (max-width: 1024px) 48vw, 18rem"
+        className="h-auto w-[clamp(10rem,58vw,18rem)] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01] sm:w-[clamp(11.5rem,42vw,18rem)]"
       />
     </Link>
   )
@@ -57,8 +57,8 @@ function CompactBrandMark({ company }: { company: SiteContent['company'] }) {
         alt={`${company.name} logo`}
         width={760}
         height={140}
-        sizes="160px"
-        className="h-auto w-[9.5rem] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+        sizes="(max-width: 640px) 132px, 160px"
+        className="h-auto w-[8rem] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01] sm:w-[9rem]"
       />
     </Link>
   )
@@ -67,7 +67,7 @@ function CompactBrandMark({ company }: { company: SiteContent['company'] }) {
 function TopBar({ company }: { company: SiteContent['company'] }) {
   return (
     <div className="bg-[color:var(--site-primary)]">
-      <Container className="grid gap-8 py-6 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-10 lg:py-7">
+      <Container className="grid gap-4 py-4 sm:gap-5 sm:py-5 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-10 lg:py-7">
         <BrandMark company={company} />
 
         <div className="hidden items-center justify-end gap-8 xl:flex">
@@ -296,7 +296,7 @@ function MobileDrawer({
       />
 
       <aside
-        className={`fixed right-0 top-0 z-[80] flex h-full w-[min(92vw,420px)] flex-col overflow-y-auto transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-[80] flex h-full w-[min(94vw,420px)] flex-col overflow-y-auto transition-transform duration-300 ${
           open ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ background: 'var(--site-dark)' }}
@@ -463,7 +463,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
 
         <div className={`transition-all duration-300 ${scrolled ? 'bg-[color:var(--site-header)]/95 shadow-[0_12px_36px_-20px_rgba(10,22,40,0.8)] backdrop-blur-xl' : 'bg-transparent'}`}>
           <Container className={scrolled ? 'py-0' : 'lg:-mt-4'}>
-            <div className={`builderz-nav-shell flex items-center justify-between gap-4 px-5 lg:px-8 ${scrolled ? 'bg-[color:var(--site-header)]' : 'bg-[color:var(--site-navbar-bg)]'}`}>
+            <div className={`builderz-nav-shell flex items-center justify-between gap-3 px-3.5 sm:px-4 lg:gap-4 lg:px-8 ${scrolled ? 'bg-[color:var(--site-header)]' : 'bg-[color:var(--site-navbar-bg)]'}`}>
               {scrolled ? (
                 <div className="hidden min-w-[11rem] lg:block">
                   <CompactBrandMark company={company} />
@@ -495,18 +495,18 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
                 </Link>
               </div>
 
-              <div className="flex min-h-[4.5rem] flex-1 items-center justify-between gap-3 lg:hidden">
+              <div className="flex min-h-[4rem] flex-1 items-center justify-between gap-2 lg:hidden">
                 <CompactBrandMark company={company} />
 
                 <div className="flex items-center gap-2">
                   <Link
                     href={company.phoneHref}
-                    className="inline-flex h-11 items-center gap-2 bg-[color:var(--site-primary)] px-4 text-sm font-bold text-[color:var(--site-dark)]"
+                    className="inline-flex h-10 w-10 items-center justify-center bg-[color:var(--site-primary)] text-sm font-bold text-[color:var(--site-dark)] min-[380px]:w-auto min-[380px]:gap-2 min-[380px]:px-3"
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
-                    Ring
+                    <span className="hidden min-[380px]:inline">Ring</span>
                   </Link>
 
                   <button
@@ -514,7 +514,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
                     aria-label="Åbn menu"
                     aria-expanded={mobileOpen}
                     onClick={() => setMobileOpen((current) => !current)}
-                    className="inline-flex h-11 w-11 items-center justify-center border border-white/20 text-white transition-colors hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]"
+                    className="inline-flex h-10 w-10 items-center justify-center border border-white/20 text-white transition-colors hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]"
                   >
                     <svg viewBox="0 0 24 24" className="h-5 w-5">
                       {mobileOpen ? (

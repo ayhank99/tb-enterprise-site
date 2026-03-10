@@ -25,13 +25,13 @@ export default function TestimonialsSection({ items, templateId, block, variant 
 
   return (
     <section className="relative overflow-hidden bg-[color:var(--site-panel)] section-block">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 rounded-full opacity-30" style={{ background: 'radial-gradient(ellipse, var(--site-primary-glow), transparent 70%)' }} />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[260px] w-[320px] -translate-x-1/2 rounded-full opacity-30 sm:h-[400px] sm:w-[600px]" style={{ background: 'radial-gradient(ellipse, var(--site-primary-glow), transparent 70%)' }} />
 
       <Container className="relative">
         <SectionHeading eyebrow={block.eyebrow} title={block.title} intro={block.intro} align="center" />
 
         {variant === 'cards' ? (
-          <div className="grid gap-[var(--grid-gap)] md:grid-cols-3">
+          <div className="grid gap-[var(--grid-gap)] md:grid-cols-2 xl:grid-cols-3">
             {items.map((item, index) => (
               <ScrollReveal key={item.name} as="figure" variant="zoom" delay={index * 90} className={cardClass}>
                 <div className="absolute left-0 right-0 top-0 h-[3px] bg-[color:var(--site-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -58,14 +58,14 @@ export default function TestimonialsSection({ items, templateId, block, variant 
         ) : null}
 
         {variant === 'slider' ? (
-          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
+          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pr-1 sm:gap-5">
             {items.map((item, index) => (
               <ScrollReveal
                 key={item.name}
                 as="figure"
                 variant="zoom"
                 delay={index * 90}
-                className={`${cardClass} w-[86%] shrink-0 snap-start sm:w-[60%] lg:w-[35%]`}
+                className={`${cardClass} w-[88%] shrink-0 snap-start min-[430px]:w-[78%] sm:w-[60%] lg:w-[35%]`}
               >
                 <div className="absolute left-0 right-0 top-0 h-[3px] bg-[color:var(--site-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
