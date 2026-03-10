@@ -24,12 +24,54 @@ function itemIsActive(pathname: string, item: NavItem) {
   return item.children?.some((child) => isRouteActive(pathname, child.href)) ?? false
 }
 
-function BrandMark({ name }: { name: string }) {
+const BRAND_TAGLINE = 'Dit projekt, vores ansvar'
+
+function joinClasses(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(' ')
+}
+
+function BrandLockup({
+  name,
+  tone,
+  compact = false,
+  className,
+}: {
+  name: string
+  tone: 'dark' | 'light'
+  compact?: boolean
+  className?: string
+}) {
+  const mainToneClass = tone === 'dark' ? 'text-[color:var(--site-dark)]' : 'text-white'
+  const taglineToneClass = tone === 'dark' ? 'text-[color:var(--site-dark)]/72' : 'text-white/72'
+
   return (
-    <Link href="/" aria-label="Forside" className="group block max-w-[32rem] text-[color:var(--site-dark)]">
-      <span className="builderz-brand-large block text-balance transition-transform duration-300 group-hover:scale-[1.01]">
+    <span className={joinClasses('inline-flex flex-col', compact ? 'gap-1' : 'gap-1.5', className)}>
+      <span
+        className={joinClasses(
+          'brand-lockup-main whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.01]',
+          compact ? 'text-[2rem] tracking-[0.02em]' : 'text-[clamp(3.15rem,5.7vw,5.45rem)] tracking-[0.012em]',
+          mainToneClass
+        )}
+      >
         {name}
       </span>
+      <span
+        className={joinClasses(
+          'brand-lockup-tagline pl-[0.15rem]',
+          compact ? 'text-[0.48rem] tracking-[0.34em]' : 'text-[0.68rem] sm:text-[0.78rem] tracking-[0.44em]',
+          taglineToneClass
+        )}
+      >
+        {BRAND_TAGLINE}
+      </span>
+    </span>
+  )
+}
+
+function BrandMark({ name }: { name: string }) {
+  return (
+    <Link href="/" aria-label="Forside" className="group inline-flex max-w-[42rem] items-start">
+      <BrandLockup name={name} tone="dark" />
     </Link>
   )
 }
@@ -39,12 +81,9 @@ function CompactBrandMark({ name }: { name: string }) {
     <Link
       href="/"
       aria-label="Forside"
-      className="inline-flex flex-col bg-[color:var(--site-dark-soft)] px-4 py-3 text-white shadow-[0_14px_28px_-18px_rgba(0,0,0,0.65)]"
+      className="group inline-flex flex-col py-3 text-white"
     >
-      <span className="builderz-brand-compact text-[0.95rem] uppercase leading-none">{name}</span>
-      <span className="mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.18em] text-white/65">
-        Kvalitet i hver detalje
-      </span>
+      <BrandLockup name={name} tone="light" compact className="max-w-[13.5rem]" />
     </Link>
   )
 }
@@ -290,7 +329,7 @@ function MobileDrawer({
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--site-primary)]">Menu</p>
-              <p className="builderz-brand-wordmark mt-2 text-2xl text-white">{company.name}</p>
+                <BrandLockup name={company.name} tone="light" compact className="mt-2 max-w-[14rem]" />
             </div>
             <button
               type="button"
@@ -481,7 +520,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
               </div>
 
               <div className="flex min-h-[4.5rem] flex-1 items-center justify-between gap-3 lg:hidden">
-                <p className="builderz-brand-wordmark max-w-[15rem] text-xl text-white">{company.name}</p>
+                <BrandLockup name={company.name} tone="light" compact className="max-w-[13rem]" />
 
                 <div className="flex items-center gap-2">
                   <Link

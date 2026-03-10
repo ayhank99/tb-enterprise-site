@@ -231,12 +231,12 @@ export default function Footer({ company, navItems }: FooterProps) {
               <FooterHeading>Om os</FooterHeading>
 
               {company.logoUrl ? (
-                <div className="relative mb-5 h-12 w-[180px]">
+                <div className="relative mb-5 h-16 w-[240px] max-w-full">
                   <Image
                     src={withSiteBasePath(company.logoUrl)}
                     alt={`${company.name} logo`}
                     fill
-                    sizes="180px"
+                    sizes="240px"
                     className="object-contain object-left"
                   />
                 </div>

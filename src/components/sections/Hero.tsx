@@ -55,7 +55,7 @@ export default function Hero({ hero }: HeroProps) {
             {hero.eyebrow}
           </p>
 
-          <h1 className="animate-fade-in-up animate-delay-100 mt-5 max-w-[13ch] font-display text-[clamp(3.4rem,7vw,4.9rem)] font-extrabold leading-[0.92] tracking-[-0.075em] text-[color:var(--site-dark)]">
+          <h1 className="animate-fade-in-up animate-delay-100 mt-5 max-w-[15ch] font-display text-[clamp(1.9rem,4.2vw,2.9rem)] font-extrabold leading-[0.94] tracking-[-0.06em] text-[color:var(--site-dark)]">
             {hero.title}
           </h1>
 
