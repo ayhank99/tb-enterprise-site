@@ -6,8 +6,9 @@ type StructuredDataProps = {
 }
 
 export default function StructuredData({ content }: StructuredDataProps) {
-  const logoUrl = content.company.logoUrl
-    ? new URL(withSiteBasePath(content.company.logoUrl), content.seo.siteUrl).toString()
+  const activeLogoUrl = content.company.logoUrlOnLight || content.company.logoUrl
+  const logoUrl = activeLogoUrl
+    ? new URL(withSiteBasePath(activeLogoUrl), content.seo.siteUrl).toString()
     : undefined
 
   const jsonLd = {

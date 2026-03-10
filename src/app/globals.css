@@ -74,7 +74,7 @@
   --container-max: 84rem;
   --grid-gap: 1.5rem;
   --font-display: var(--font-sans);
-  --font-brand: var(--font-brand-condensed), "Bahnschrift SemiCondensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-brand: "Arial Rounded MT Bold", "Trebuchet MS", "Avenir Next Rounded", "Segoe UI", sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -349,21 +349,6 @@ h6 {
   font-weight: 700;
   letter-spacing: -0.05em;
   line-height: 0.94;
-}
-
-.brand-lockup-main {
-  font-family: var(--font-brand);
-  font-weight: 700;
-  letter-spacing: 0.015em;
-  line-height: 0.86;
-  text-transform: uppercase;
-}
-
-.brand-lockup-tagline {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-weight: 600;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 /* ═══════════════════════════════════════════════════════

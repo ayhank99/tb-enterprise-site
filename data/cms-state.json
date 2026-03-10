@@ -3,7 +3,8 @@
   "content": {
     "company": {
       "name": "TB ENTERPRISE",
-      "logoUrl": "/brand/tb-entreprise-logo.svg",
+      "logoUrl": "/uploads/4cpdd-72c390b0.jpg",
+      "logoUrlOnLight": "/brand/tb-entreprise-logo-dark.svg",
       "phoneDisplay": "93 80 04 26",
       "phoneHref": "tel:+4593800426",
       "email": "info@tbgruppen.dk",
@@ -645,5 +646,5 @@
       "locale": "da_DK"
     }
   },
-  "updatedAt": "2026-03-09T21:55:06.044Z"
+  "updatedAt": "2026-03-10T11:12:28.007Z"
 }

@@ -89,6 +89,7 @@ export type SiteContent = {
   company: {
     name: string
     logoUrl: string
+    logoUrlOnLight: string
     phoneDisplay: string
     phoneHref: string
     email: string

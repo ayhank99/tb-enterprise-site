@@ -1,10 +1,11 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import Container from '@/components/Container'
-import { isCmsEnabledOnDeployment } from '@/lib/site-paths'
+import { isCmsEnabledOnDeployment, withSiteBasePath } from '@/lib/site-paths'
 import { NavItem, SiteContent } from '@/lib/site-data'
 import { TemplateId } from '@/lib/templates'
 
@@ -24,66 +25,41 @@ function itemIsActive(pathname: string, item: NavItem) {
   return item.children?.some((child) => isRouteActive(pathname, child.href)) ?? false
 }
 
-const BRAND_TAGLINE = 'Dit projekt, vores ansvar'
-
-function joinClasses(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(' ')
-}
-
-function BrandLockup({
-  name,
-  tone,
-  compact = false,
-  className,
-}: {
-  name: string
-  tone: 'dark' | 'light'
-  compact?: boolean
-  className?: string
-}) {
-  const mainToneClass = tone === 'dark' ? 'text-[color:var(--site-dark)]' : 'text-white'
-  const taglineToneClass = tone === 'dark' ? 'text-[color:var(--site-dark)]/72' : 'text-white/72'
+function BrandMark({ company }: { company: SiteContent['company'] }) {
+  const src = withSiteBasePath(company.logoUrlOnLight || company.logoUrl)
 
   return (
-    <span className={joinClasses('inline-flex flex-col', compact ? 'gap-1' : 'gap-1.5', className)}>
-      <span
-        className={joinClasses(
-          'brand-lockup-main whitespace-nowrap transition-transform duration-300 group-hover:scale-[1.01]',
-          compact ? 'text-[2rem] tracking-[0.02em]' : 'text-[clamp(3.15rem,5.7vw,5.45rem)] tracking-[0.012em]',
-          mainToneClass
-        )}
-      >
-        {name}
-      </span>
-      <span
-        className={joinClasses(
-          'brand-lockup-tagline pl-[0.15rem]',
-          compact ? 'text-[0.48rem] tracking-[0.34em]' : 'text-[0.68rem] sm:text-[0.78rem] tracking-[0.44em]',
-          taglineToneClass
-        )}
-      >
-        {BRAND_TAGLINE}
-      </span>
-    </span>
-  )
-}
-
-function BrandMark({ name }: { name: string }) {
-  return (
-    <Link href="/" aria-label="Forside" className="group inline-flex max-w-[42rem] items-start">
-      <BrandLockup name={name} tone="dark" />
+    <Link href="/" aria-label="Forside" className="group inline-flex items-start">
+      <Image
+        src={src}
+        alt={`${company.name} logo`}
+        width={980}
+        height={180}
+        priority
+        sizes="(max-width: 1024px) 56vw, 18rem"
+        className="h-auto w-[clamp(12.5rem,20vw,18rem)] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+      />
     </Link>
   )
 }
 
-function CompactBrandMark({ name }: { name: string }) {
+function CompactBrandMark({ company }: { company: SiteContent['company'] }) {
+  const src = withSiteBasePath(company.logoUrl)
+
   return (
     <Link
       href="/"
       aria-label="Forside"
-      className="group inline-flex flex-col py-3 text-white"
+      className="group inline-flex items-center py-3"
     >
-      <BrandLockup name={name} tone="light" compact className="max-w-[13.5rem]" />
+      <Image
+        src={src}
+        alt={`${company.name} logo`}
+        width={760}
+        height={140}
+        sizes="160px"
+        className="h-auto w-[9.5rem] max-w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+      />
     </Link>
   )
 }
@@ -91,10 +67,10 @@ function CompactBrandMark({ name }: { name: string }) {
 function TopBar({ company }: { company: SiteContent['company'] }) {
   return (
     <div className="bg-[color:var(--site-primary)]">
-      <Container className="grid gap-8 py-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:py-8">
-        <BrandMark name={company.name} />
+      <Container className="grid gap-8 py-6 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-10 lg:py-7">
+        <BrandMark company={company} />
 
-        <div className="hidden items-center gap-8 xl:flex">
+        <div className="hidden items-center justify-end gap-8 xl:flex">
           <div className="flex items-center gap-4">
             <span className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[color:var(--site-dark)]/18 text-[color:var(--site-dark)]">
               <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -329,7 +305,7 @@ function MobileDrawer({
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--site-primary)]">Menu</p>
-                <BrandLockup name={company.name} tone="light" compact className="mt-2 max-w-[14rem]" />
+                <CompactBrandMark company={company} />
             </div>
             <button
               type="button"
@@ -490,7 +466,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
             <div className={`builderz-nav-shell flex items-center justify-between gap-4 px-5 lg:px-8 ${scrolled ? 'bg-[color:var(--site-header)]' : 'bg-[color:var(--site-navbar-bg)]'}`}>
               {scrolled ? (
                 <div className="hidden min-w-[11rem] lg:block">
-                  <CompactBrandMark name={company.name} />
+                  <CompactBrandMark company={company} />
                 </div>
               ) : null}
 
@@ -520,7 +496,7 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
               </div>
 
               <div className="flex min-h-[4.5rem] flex-1 items-center justify-between gap-3 lg:hidden">
-                <BrandLockup name={company.name} tone="light" compact className="max-w-[13rem]" />
+                <CompactBrandMark company={company} />
 
                 <div className="flex items-center gap-2">
                   <Link

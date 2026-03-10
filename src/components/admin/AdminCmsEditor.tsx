@@ -428,6 +428,20 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
       })
     }
 
+    for (const brandAsset of [
+      { url: draft.content.company.logoUrl, label: 'Logo til mørk baggrund' },
+      { url: draft.content.company.logoUrlOnLight, label: 'Logo til lys baggrund' },
+    ]) {
+      if (!brandAsset.url || seen.has(brandAsset.url)) continue
+      seen.add(brandAsset.url)
+      items.push({
+        label: brandAsset.label,
+        helper: 'Brand',
+        url: brandAsset.url,
+        kind: 'image',
+      })
+    }
+
     for (const image of draft.content.galleryImages) {
       if (!image.src || seen.has(image.src)) continue
       seen.add(image.src)
@@ -440,7 +454,7 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
     }
 
     return items
-  }, [draft.content.galleryImages, mediaFiles])
+  }, [draft.content.company.logoUrl, draft.content.company.logoUrlOnLight, draft.content.galleryImages, mediaFiles])
   const videoOptions = useMemo(
     () =>
       mediaFiles
@@ -780,10 +794,16 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
                     <TextInput label="Åbningstider" value={draft.content.company.openingHours} onChange={(value) => mutateContent((c) => (c.company.openingHours = value))} />
                   </div>
                   <ImagePickerField
-                    label="Logo URL"
+                    label="Logo til mørke områder"
                     value={draft.content.company.logoUrl}
                     options={imageOptions}
                     onChange={(value) => mutateContent((c) => (c.company.logoUrl = value))}
+                  />
+                  <ImagePickerField
+                    label="Logo til lyse / gule områder"
+                    value={draft.content.company.logoUrlOnLight}
+                    options={imageOptions}
+                    onChange={(value) => mutateContent((c) => (c.company.logoUrlOnLight = value))}
                   />
                   <TextArea
                     label="Serviceområder (en pr. linje)"
