@@ -25,6 +25,16 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'tbgruppen.dk',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.tbgruppen.dk',
+        pathname: '/**',
+      },
     ],
   },
 }

@@ -1975,7 +1975,8 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
                     Opdater liste
                   </button>
                   <p className="text-xs text-[color:var(--site-muted)]">
-                    Filer samles i mappen `public/uploads`.
+                    Lokalt samles filer i `public/uploads`, men pÃ¥ Vercel bÃ¸r permanente medier ligge pÃ¥ kundens eget domÃ¦ne,
+                    f.eks. <span className="font-semibold">https://tbgruppen.dk/uploads/filnavn.png</span>.
                   </p>
                 </div>
 
