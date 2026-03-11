@@ -48,7 +48,7 @@ export default function ProcessSection({ steps, templateId, block, variant = 'st
                 <div className="absolute left-0 right-0 top-0 h-[3px] bg-[color:var(--site-primary)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 {/* Step number */}
-                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--site-primary)] text-lg font-bold text-[color:var(--site-dark)] shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
+                <span className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--site-primary)] text-lg font-bold text-white shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg">
                   {index + 1}
                 </span>
 
@@ -70,7 +70,7 @@ export default function ProcessSection({ steps, templateId, block, variant = 'st
           <ol className="relative space-y-6 border-l-2 pl-8" style={{ borderColor: 'var(--site-primary)' }}>
             {steps.map((step, index) => (
               <li key={step.title} className="group relative rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] p-6 shadow-[var(--site-card-shadow)] transition-all duration-300 hover:shadow-[var(--site-card-shadow-hover)]">
-                <span className="absolute -left-[calc(2rem+5px)] mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-xs font-bold text-[color:var(--site-dark)] shadow-md">
+                <span className="absolute -left-[calc(2rem+5px)] mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-xs font-bold text-white shadow-md">
                   {index + 1}
                 </span>
                 <h3 className="font-display text-xl text-[color:var(--site-text)]">{step.title}</h3>

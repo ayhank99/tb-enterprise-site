@@ -1,3 +1,4 @@
+import { getCompanyLogoPath } from '@/lib/logo-utils'
 import { SiteContent } from '@/lib/site-data'
 import { toAbsoluteSiteUrl, withSiteBasePath } from '@/lib/site-paths'
 
@@ -6,7 +7,7 @@ type StructuredDataProps = {
 }
 
 export default function StructuredData({ content }: StructuredDataProps) {
-  const activeLogoUrl = content.company.logoUrlOnLight || content.company.logoUrl
+  const activeLogoUrl = getCompanyLogoPath(content.company, 'light')
   const logoUrl = activeLogoUrl
     ? new URL(withSiteBasePath(activeLogoUrl), content.seo.siteUrl).toString()
     : undefined

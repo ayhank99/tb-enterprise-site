@@ -794,13 +794,13 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
                     <TextInput label="Åbningstider" value={draft.content.company.openingHours} onChange={(value) => mutateContent((c) => (c.company.openingHours = value))} />
                   </div>
                   <ImagePickerField
-                    label="Logo til mørke områder"
+                    label="Logo til mørke områder (transparent PNG/SVG)"
                     value={draft.content.company.logoUrl}
                     options={imageOptions}
                     onChange={(value) => mutateContent((c) => (c.company.logoUrl = value))}
                   />
                   <ImagePickerField
-                    label="Logo til lyse / gule områder"
+                    label="Logo til lyse / gule områder (transparent PNG/SVG)"
                     value={draft.content.company.logoUrlOnLight}
                     options={imageOptions}
                     onChange={(value) => mutateContent((c) => (c.company.logoUrlOnLight = value))}

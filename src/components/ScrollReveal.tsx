@@ -2,7 +2,7 @@
 
 import { createElement, CSSProperties, HTMLAttributes, ReactNode, Ref, useEffect, useRef, useState } from 'react'
 
-type RevealElement = 'div' | 'section' | 'article' | 'figure' | 'aside' | 'p' | 'h2' | 'h3' | 'li'
+type RevealElement = 'div' | 'section' | 'article' | 'figure' | 'aside' | 'p' | 'h1' | 'h2' | 'h3' | 'li'
 type RevealVariant = 'up' | 'left' | 'right' | 'zoom' | 'image' | 'soft'
 
 type ScrollRevealProps = {

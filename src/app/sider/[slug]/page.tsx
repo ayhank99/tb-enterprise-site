@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
+import PageHero from '@/components/PageHero'
 import PageNarrativeSection from '@/components/PageNarrativeSection'
+import ScrollReveal from '@/components/ScrollReveal'
 import QuoteSection from '@/components/sections/QuoteSection'
 import { readCmsState } from '@/lib/cms-store'
 import { getCustomPageNarrative } from '@/lib/professional-copy'
@@ -48,19 +50,23 @@ export default async function CustomPage({ params }: CustomPageProps) {
 
   return (
     <>
-      <section className="hero-shell py-20">
-        <Container className="max-w-4xl">
-          <p className="section-eyebrow">{page.menuLabel}</p>
-          <h1 className="mt-4 font-display text-4xl md:text-6xl">{page.title}</h1>
-          <p className="mt-6 text-base leading-relaxed text-[color:var(--site-on-dark-soft)]">{page.intro}</p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow={page.menuLabel}
+        title={page.title}
+        intro={page.intro}
+        imageSrc={state.content.galleryImages[0]?.src ?? state.content.hero.backgroundImage}
+        imageAlt={page.title}
+        primaryCtaLabel="Kontakt os"
+        primaryCtaHref="/kontakt#tilbudsformular"
+        secondaryCtaLabel="Se ydelser"
+        secondaryCtaHref="/ydelser"
+      />
 
-      <section className="section-soft py-20">
+      <section className="section-soft py-16 md:py-20">
         <Container className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {page.sections.map((section) => (
-            <article key={section.heading} className="panel-card p-6">
-              <h2 className="font-display text-2xl text-[color:var(--site-text)]">{section.heading}</h2>
+          {page.sections.map((section, index) => (
+            <ScrollReveal key={section.heading} as="article" variant="soft" delay={index * 70} className="panel-card p-6">
+              <h2 className="font-display text-[clamp(1.45rem,2.8vw,2rem)] font-bold tracking-[-0.04em] text-[color:var(--site-text)]">{section.heading}</h2>
               <p className="mt-4 text-sm leading-relaxed text-[color:var(--site-muted)]">{section.text}</p>
               {section.bullets.length > 0 ? (
                 <ul className="mt-5 space-y-2">
@@ -71,7 +77,7 @@ export default async function CustomPage({ params }: CustomPageProps) {
                   ))}
                 </ul>
               ) : null}
-            </article>
+            </ScrollReveal>
           ))}
         </Container>
       </section>

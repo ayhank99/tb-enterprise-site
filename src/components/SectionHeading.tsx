@@ -16,24 +16,28 @@ export default function SectionHeading({ eyebrow, title, intro, align = 'left' }
         <ScrollReveal
           as="p"
           variant="soft"
-          className={`mb-4 flex items-center gap-3 text-sm font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary)] ${isCenter ? 'justify-center' : ''}`}
+        className={`mb-4 flex items-center gap-3 text-[0.8rem] font-bold tracking-[0.04em] text-[color:var(--site-primary)] sm:text-[0.84rem] ${isCenter ? 'justify-center' : ''}`}
         >
           <span className="h-[2px] w-8 bg-[color:var(--site-primary)]" />
           {eyebrow}
-          <span className="h-[2px] w-8 bg-[color:var(--site-primary)]" />
+          {!isCenter ? null : <span className="h-[2px] w-8 bg-[color:var(--site-primary)]" />}
         </ScrollReveal>
       ) : null}
 
       <ScrollReveal
         as="h2"
         delay={80}
-        className="font-display text-4xl font-extrabold leading-[0.98] tracking-[-0.06em] text-[color:var(--site-text)] md:text-5xl lg:text-[4rem]"
+        className="font-display text-[clamp(1.8rem,4.25vw,3rem)] font-extrabold leading-[0.99] tracking-[-0.045em] text-[color:var(--site-text)]"
       >
         {title}
       </ScrollReveal>
 
+      <ScrollReveal delay={120}>
+        <div className={`mt-4 h-[3px] bg-[color:var(--site-primary)]/95 ${isCenter ? 'mx-auto w-24' : 'w-20'}`} />
+      </ScrollReveal>
+
       {intro ? (
-        <ScrollReveal as="p" variant="soft" delay={160} className="mt-5 text-lg leading-relaxed text-[color:var(--site-muted)]">
+        <ScrollReveal as="p" variant="soft" delay={160} className="mt-5 text-[0.98rem] leading-relaxed text-[color:var(--site-muted)] sm:text-base md:text-[1.02rem]">
           {intro}
         </ScrollReveal>
       ) : null}

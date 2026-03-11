@@ -1,9 +1,9 @@
-﻿import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Container from '@/components/Container'
+import PageHero from '@/components/PageHero'
 import PageNarrativeSection from '@/components/PageNarrativeSection'
+import ScrollReveal from '@/components/ScrollReveal'
 import QuoteSection from '@/components/sections/QuoteSection'
 import { readCmsState } from '@/lib/cms-store'
 import { getServiceNarrative } from '@/lib/professional-copy'
@@ -51,29 +51,22 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <>
-      <section className="hero-shell py-20">
-        <Container className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div>
-            <p className="section-eyebrow">Ydelse</p>
-            <h1 className="mt-4 font-display text-4xl md:text-6xl">{service.title}</h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-[color:var(--site-on-dark-soft)]">{service.description}</p>
-            <div className="mt-8">
-              <Link href="/kontakt#tilbudsformular" className="btn-primary">
-                Få tilbud på {service.title.toLowerCase()}
-              </Link>
-            </div>
-          </div>
+      <PageHero
+        eyebrow="Ydelse"
+        title={service.title}
+        intro={service.description}
+        imageSrc={service.image}
+        imageAlt={service.title}
+        primaryCtaLabel={`Få tilbud på ${service.title.toLowerCase()}`}
+        primaryCtaHref="/kontakt#tilbudsformular"
+        secondaryCtaLabel="Ring nu"
+        secondaryCtaHref={content.company.phoneHref}
+      />
 
-          <div className="relative h-72 overflow-hidden rounded-3xl border lg:h-96" style={{ borderColor: 'var(--site-on-dark-border)' }}>
-            <Image src={withSiteBasePath(service.image)} alt={service.title} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-soft py-20">
+      <section className="section-soft py-16 md:py-20">
         <Container className="grid gap-8 lg:grid-cols-2">
-          <article className="panel-card p-7">
-            <h2 className="font-display text-3xl text-[color:var(--site-text)]">Dette indgår</h2>
+          <ScrollReveal as="article" variant="left" className="panel-card p-7">
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-bold tracking-[-0.04em] text-[color:var(--site-text)]">Dette indgår</h2>
             <ul className="mt-6 space-y-3 text-sm leading-relaxed text-[color:var(--site-muted)]">
               {service.includes.map((item) => (
                 <li key={item} className="rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel-soft)] px-4 py-3">
@@ -81,10 +74,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </li>
               ))}
             </ul>
-          </article>
+          </ScrollReveal>
 
-          <article className="panel-card p-7" style={{ background: 'var(--site-primary-soft)' }}>
-            <h2 className="font-display text-3xl text-[color:var(--site-text)]">Typisk relevant til</h2>
+          <ScrollReveal as="article" variant="right" delay={90} className="panel-card p-7" style={{ background: 'var(--site-primary-soft)' }}>
+            <h2 className="font-display text-[clamp(1.6rem,3vw,2.2rem)] font-bold tracking-[-0.04em] text-[color:var(--site-text)]">Typisk relevant til</h2>
             <ul className="mt-6 space-y-3 text-sm leading-relaxed text-[color:var(--site-muted)]">
               {service.idealFor.map((item) => (
                 <li key={item} className="rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] px-4 py-3">
@@ -92,7 +85,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 </li>
               ))}
             </ul>
-          </article>
+          </ScrollReveal>
         </Container>
       </section>
 
@@ -106,4 +99,3 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     </>
   )
 }
-

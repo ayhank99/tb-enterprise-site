@@ -31,78 +31,80 @@ export default function BuilderzIntroSection({
   galleryImages,
 }: BuilderzIntroSectionProps) {
   const featureImage = galleryImages[0]?.src ?? hero.backgroundImage
-  const leadPoints = companyStory.points.slice(0, 2)
+  const leadPoints = companyStory.points.slice(0, 3)
 
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="grid lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_320px]">
-          <ScrollReveal as="div" variant="left" className="bg-[color:var(--site-dark)] text-white">
-            <Container className="flex min-h-[90px] items-center py-6">
-              <p className="max-w-4xl text-base font-bold leading-tight sm:text-lg md:text-2xl">
-                Vi er klar til at levere holdbare løsninger med fokus på kvalitet, finish og tydelige aftaler.
-              </p>
-            </Container>
-          </ScrollReveal>
+      <section className="bg-[color:var(--site-bg-soft)] py-5 sm:py-6">
+        <Container>
+          <ScrollReveal className="rounded-[2rem] border border-[color:var(--site-border)] bg-white px-5 py-6 shadow-[var(--site-card-shadow)] sm:px-6">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-3xl">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">Professionel samarbejdspartner</p>
+                <p className="mt-3 text-lg font-semibold leading-tight text-[color:var(--site-text)] sm:text-[1.45rem]">
+                  Vi leverer holdbare løsninger med fokus på klare aftaler, god kommunikation og pæn aflevering.
+                </p>
+              </div>
 
-          <ScrollReveal as="div" variant="right" delay={120}>
-            <Link
-              href="/kontakt"
-              className="relative flex items-center justify-center gap-3 bg-[color:var(--site-primary)] px-6 py-5 text-base font-bold text-[color:var(--site-dark)] transition-opacity hover:opacity-90 sm:px-8 sm:py-6 sm:text-lg md:text-2xl"
-            >
-              <span
-                className="absolute left-[-3.5rem] top-0 hidden h-full w-16 bg-[color:var(--site-primary)] lg:block"
-                style={{ clipPath: 'polygon(100% 0, 0 100%, 100% 100%)' }}
-              />
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
-              <span>Kontakt os</span>
-            </Link>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link href="/kontakt#tilbudsformular" className="btn-primary">
+                  {cta.primaryLabel}
+                </Link>
+                <Link href={company.phoneHref} className="btn-secondary">
+                  Ring direkte
+                </Link>
+              </div>
+            </div>
           </ScrollReveal>
-        </div>
+        </Container>
       </section>
 
-      <section className="bg-[color:var(--site-bg-soft)] py-16 md:py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-center">
-          <ScrollReveal variant="image" className="relative mx-auto w-full max-w-[640px]">
-            <div className="absolute inset-x-0 bottom-[-1.5rem] top-[1.5rem] rotate-[-6deg] bg-[color:var(--site-primary)]/35" />
-            <div className="absolute inset-x-5 bottom-5 top-[-1.25rem] rotate-[4deg] border-[14px] border-[color:var(--site-primary)]" />
-
-            <div className="relative aspect-[4/3] overflow-hidden bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]">
+      <section className="section-block bg-[color:var(--site-bg)]">
+        <Container className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+          <ScrollReveal variant="image" className="relative overflow-hidden rounded-[2.2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]">
+            <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[540px]">
               <Image
                 src={withSiteBasePath(featureImage)}
                 alt={company.name}
                 fill
-                sizes="(max-width: 1024px) 100vw, 46vw"
+                sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--site-dark-overlay)] via-[color:var(--site-dark-overlay)]/40 to-transparent" />
             </div>
 
-            <Link
-              href="/om-os"
-              aria-label="Læs mere om virksomheden"
-              className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-[color:var(--site-dark)] shadow-2xl transition-transform hover:scale-105 sm:h-24 sm:w-24"
-            >
-              <svg viewBox="0 0 24 24" className="h-10 w-10" fill="currentColor">
-                <path d="M8 5l10 7-10 7V5z" />
-              </svg>
-            </Link>
+            <div className="absolute inset-x-5 bottom-5 rounded-[1.6rem] border border-white/18 bg-[color:var(--site-dark-overlay)]/90 px-5 py-4 text-white backdrop-blur-sm sm:inset-x-7 sm:bottom-7 sm:px-6 sm:py-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">{company.name}</p>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/82">
+                Belægning, anlæg, vedligehold og mindre entrepriser udført med ordentlig planlægning og stabil kvalitet.
+              </p>
+            </div>
           </ScrollReveal>
 
           <div>
             <SectionHeading eyebrow={block.eyebrow ?? 'Velkommen'} title={block.title} intro={companyStory.intro || block.intro} />
 
-            <div className="space-y-5 text-base leading-relaxed text-[color:var(--site-muted)]">
-              {leadPoints.map((point) => (
-                <ScrollReveal key={point} as="p" variant="soft">
-                  {point}
+            <div className="mt-8 grid gap-4">
+              {leadPoints.map((point, index) => (
+                <ScrollReveal
+                  key={point}
+                  variant="soft"
+                  delay={index * 80}
+                  className="rounded-[1.4rem] border border-[color:var(--site-border)] bg-white px-5 py-4 shadow-[var(--site-card-shadow)]"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[color:var(--site-primary-soft)] text-[color:var(--site-primary)]">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </span>
+                    <p className="text-sm leading-relaxed text-[color:var(--site-muted)] sm:text-[0.98rem]">{point}</p>
+                  </div>
                 </ScrollReveal>
               ))}
             </div>
 
-            <ScrollReveal delay={180} className="mt-8 flex flex-wrap gap-4">
+            <ScrollReveal delay={180} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link href="/kontakt#tilbudsformular" className="btn-primary">
                 {cta.primaryLabel}
               </Link>

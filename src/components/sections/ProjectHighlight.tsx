@@ -45,7 +45,7 @@ function ProjectCard({ image, tall = false }: { image: ProjectImage; tall?: bool
         <span className="mt-2 block text-lg font-bold leading-tight">{image.title ?? image.alt}</span>
       </span>
 
-      <span className="absolute right-4 top-4 translate-x-2 rounded-lg bg-[color:var(--site-primary)] p-2.5 text-[color:var(--site-dark)] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+      <span className="absolute right-4 top-4 translate-x-2 rounded-lg bg-[color:var(--site-primary)] p-2.5 text-white opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
           <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>

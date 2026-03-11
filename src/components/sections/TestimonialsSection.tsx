@@ -47,7 +47,7 @@ export default function TestimonialsSection({ items, templateId, block, variant 
                 </blockquote>
 
                 <figcaption className="mt-5 flex items-center gap-3 border-t border-[color:var(--site-border)] pt-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-sm font-bold text-[color:var(--site-dark)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-sm font-bold text-white">
                     {item.name.charAt(0)}
                   </span>
                   <span className="text-sm font-bold text-[color:var(--site-text)]">{item.name}</span>
@@ -80,7 +80,7 @@ export default function TestimonialsSection({ items, templateId, block, variant 
                 </blockquote>
 
                 <figcaption className="mt-5 flex items-center gap-3 border-t border-[color:var(--site-border)] pt-4">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-sm font-bold text-[color:var(--site-dark)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--site-primary)] text-sm font-bold text-white">
                     {item.name.charAt(0)}
                   </span>
                   <span className="text-sm font-bold text-[color:var(--site-text)]">{item.name}</span>

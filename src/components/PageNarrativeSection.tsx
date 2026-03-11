@@ -21,19 +21,24 @@ export default function PageNarrativeSection({
   const resolvedImageSrc = withSiteBasePath(imageSrc)
 
   return (
-    <section className="bg-[color:var(--site-panel)] py-16 md:py-20">
+    <section className="section-block bg-[color:var(--site-panel)]">
       <Container>
-        <div className={`grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch ${reverse ? 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1' : ''}`}>
-          <ScrollReveal as="article" variant={reverse ? 'right' : 'left'} className="relative overflow-hidden rounded-[1.75rem] bg-[color:var(--site-dark)] text-[color:var(--site-on-dark)] shadow-2xl">
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[color:var(--site-primary)] via-[#f7b731] to-[color:var(--site-primary)]" />
-            <div className="pointer-events-none absolute -right-16 -top-12 h-40 w-40 rounded-full opacity-20" style={{ background: 'var(--site-primary-glow)' }} />
+        <div className={`grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch ${reverse ? 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1' : ''}`}>
+          <ScrollReveal
+            as="article"
+            variant={reverse ? 'right' : 'left'}
+            className="overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-white shadow-[var(--site-card-shadow-hover)]"
+          >
+            <div className="h-1 bg-[color:var(--site-primary)]" />
 
-            <div className="relative p-7 sm:p-9">
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--site-primary)]">{block.eyebrow}</p>
-              <h2 className="mt-4 font-display text-3xl leading-tight tracking-[-0.05em] md:text-4xl">{block.title}</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--site-on-dark-soft)]">{block.intro}</p>
+            <div className="p-7 sm:p-9">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">{block.eyebrow}</p>
+              <h2 className="mt-4 font-display text-[clamp(1.75rem,3.9vw,2.85rem)] font-extrabold leading-[1.02] tracking-[-0.045em] text-[color:var(--site-text)]">
+                {block.title}
+              </h2>
+              <p className="mt-5 max-w-2xl text-[0.98rem] leading-relaxed text-[color:var(--site-muted)] sm:text-base">{block.intro}</p>
 
-              <div className="mt-6 space-y-4 text-sm leading-relaxed text-[color:var(--site-on-dark-soft)]">
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-[color:var(--site-muted)]">
                 {block.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -41,32 +46,33 @@ export default function PageNarrativeSection({
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 {block.highlights.map((item) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm font-medium text-white">
+                  <div key={item} className="rounded-[1.2rem] bg-[color:var(--site-bg-soft)] px-4 py-4 text-sm font-medium text-[color:var(--site-text)] ring-1 ring-[color:var(--site-border)]">
                     {item}
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link href="/kontakt#tilbudsformular" className="btn-primary">
                   Få et tilbud
                 </Link>
-                <Link
-                  href="/galleri"
-                  className="inline-flex items-center rounded-lg border-2 border-white/15 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]"
-                >
+                <Link href="/galleri" className="btn-secondary">
                   Se referencer
                 </Link>
               </div>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal variant="image" delay={120} className="relative min-h-[320px] overflow-hidden rounded-[1.75rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]">
+          <ScrollReveal
+            variant="image"
+            delay={120}
+            className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]"
+          >
             <Image src={resolvedImageSrc} alt={imageAlt} fill sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover" />
-            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[color:var(--site-dark)]/55 via-[color:var(--site-dark)]/10 to-transparent" />
-            <div className="absolute inset-x-6 bottom-6 z-20 rounded-2xl border border-white/15 bg-[color:var(--site-dark)]/82 px-5 py-4 text-white backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--site-dark-overlay)]/58 via-transparent to-transparent" />
+            <div className="absolute inset-x-6 bottom-6 rounded-[1.4rem] border border-white/22 bg-white/92 px-5 py-4 text-[color:var(--site-text)] shadow-[var(--site-card-shadow)] backdrop-blur-sm">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">TB Entreprise</p>
-              <p className="mt-2 text-sm leading-relaxed text-[color:var(--site-on-dark-soft)]">
+              <p className="mt-2 text-sm leading-relaxed text-[color:var(--site-muted)]">
                 Professionelle løsninger inden for belægning, anlæg, drift og mindre entrepriser i Storkøbenhavn.
               </p>
             </div>

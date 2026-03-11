@@ -43,37 +43,34 @@ export default function Hero({ hero }: HeroProps) {
         ) : (
           <Image src={backgroundImage} alt="Professionelt arbejde" fill priority className="object-cover" sizes="100vw" />
         )}
-        <div
-          className="absolute inset-0"
-          style={{ background: 'linear-gradient(94deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.58) 40%, rgba(255,255,255,0.08) 100%)' }}
-        />
+        <div className="hero-overlay absolute inset-0" />
       </div>
 
-      <Container className="relative py-16 sm:py-20 md:py-28 lg:py-40">
-        <div className="max-w-[60rem]">
-          <p className="animate-fade-in-up text-xs font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary-strong)] sm:text-sm md:text-base">
+      <Container className="relative py-14 sm:py-16 md:py-20 lg:py-24">
+        <div className="max-w-[54rem]">
+          <p className="animate-fade-in-up text-[0.76rem] font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary)] sm:text-xs md:text-sm">
             {hero.eyebrow}
           </p>
 
-          <h1 className="animate-fade-in-up animate-delay-100 mt-4 max-w-[12ch] font-display text-[clamp(1.55rem,8vw,2.9rem)] font-extrabold leading-[0.94] tracking-[-0.06em] text-[color:var(--site-dark)] sm:mt-5 sm:max-w-[13ch] md:max-w-[15ch]">
+          <h1 className="animate-fade-in-up animate-delay-100 mt-4 max-w-[10ch] font-display text-[clamp(1.65rem,4.3vw,3rem)] font-extrabold leading-[0.96] tracking-[-0.05em] text-white sm:mt-5 sm:max-w-[10.75ch] md:max-w-[11.5ch]">
             {hero.title}
           </h1>
 
-          <p className="animate-fade-in-up animate-delay-200 mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--site-muted)] sm:mt-6 sm:text-lg md:mt-7 md:text-xl">
+          <p className="animate-fade-in-up animate-delay-200 mt-5 max-w-[34rem] text-[0.96rem] leading-relaxed text-white/82 sm:mt-6 sm:text-[0.98rem] md:mt-7 md:text-base">
             {hero.text}
           </p>
 
           <div className="animate-fade-in-up animate-delay-300 mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
             <Link
               href={hero.primaryCtaHref}
-              className="inline-flex w-full items-center justify-center bg-[color:var(--site-primary)] px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center rounded-full bg-[color:var(--site-primary)] px-7 py-4 text-sm font-bold text-white transition-all duration-300 hover:bg-[color:var(--site-primary-strong)] sm:w-auto sm:px-8"
             >
               {hero.primaryCtaLabel}
             </Link>
 
             <Link
               href={hero.secondaryCtaHref}
-              className="inline-flex w-full items-center justify-center border-2 border-[color:var(--site-dark)] px-7 py-4 text-sm font-bold uppercase tracking-[0.08em] text-[color:var(--site-dark)] transition-all duration-300 hover:bg-[color:var(--site-dark)] hover:text-white sm:w-auto sm:px-8"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/45 bg-white/8 px-7 py-4 text-sm font-bold text-white transition-all duration-300 hover:bg-white/14 sm:w-auto sm:px-8"
             >
               {hero.secondaryCtaLabel}
             </Link>

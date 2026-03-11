@@ -47,7 +47,7 @@ export default function TrustStrip({ points, templateId }: TrustStripProps) {
           </div>
           {/* Right — Gold with CTA */}
           <div className="flex items-center justify-center bg-[color:var(--site-primary)] px-8 py-5 lg:px-12">
-            <a href="/kontakt" className="flex items-center gap-3 text-base font-bold text-[color:var(--site-dark)] transition-opacity hover:opacity-80 md:text-lg">
+            <a href="/kontakt" className="flex items-center gap-3 text-base font-bold text-white transition-opacity hover:opacity-80 md:text-lg">
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
@@ -69,15 +69,15 @@ export default function TrustStrip({ points, templateId }: TrustStripProps) {
             {points.map((point, idx) => (
               <div key={point} className="flex items-center gap-4">
                 <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 ${
-                  idx < 2 ? 'border-[color:var(--site-primary)]/40 text-[color:var(--site-primary)]' : 'border-[color:var(--site-dark)]/30 text-[color:var(--site-dark)]'
+                  idx < 2 ? 'border-[color:var(--site-primary)]/40 text-[color:var(--site-primary)]' : 'border-white/30 text-white'
                 }`}>
                   {icons[idx % icons.length]}
                 </span>
                 <div>
-                  <span className={`block text-3xl font-black ${idx < 2 ? 'text-[color:var(--site-primary)]' : 'text-[color:var(--site-dark)]'}`}>
+                  <span className={`block text-3xl font-black ${idx < 2 ? 'text-white' : 'text-white'}`}>
                     {statNumbers[idx % statNumbers.length]}
                   </span>
-                  <span className={`block text-xs font-bold uppercase tracking-[0.12em] ${idx < 2 ? 'text-white/70' : 'text-[color:var(--site-dark)]/70'}`}>
+                  <span className={`block text-xs font-bold uppercase tracking-[0.12em] ${idx < 2 ? 'text-white' : 'text-white'}`}>
                     {statLabels[idx % statLabels.length]}
                   </span>
                 </div>

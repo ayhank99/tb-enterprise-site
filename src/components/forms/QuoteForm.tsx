@@ -36,8 +36,8 @@ type QuoteFormProps = {
 
 function getInputClassName(hasError: boolean) {
   return [
-    'w-full rounded-none border-0 border-b-2 bg-white px-4 py-3.5 text-sm text-[color:var(--site-dark)] shadow-none outline-none transition-all focus:ring-0',
-    hasError ? 'border-rose-500' : 'border-white/20 focus:border-[color:var(--site-primary)]',
+    'w-full rounded-2xl border bg-white px-4 py-3.5 text-sm text-[color:var(--site-text)] shadow-none outline-none transition-all placeholder:text-[color:var(--site-muted)]/70 focus:ring-0',
+    hasError ? 'border-rose-500' : 'border-[color:var(--site-border)] focus:border-[color:var(--site-primary)]',
   ].join(' ')
 }
 
@@ -54,11 +54,11 @@ function FormField({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+      <label htmlFor={htmlFor} className="mb-2 block text-[11px] font-semibold uppercase tracking-[0.16em] text-[color:var(--site-muted)]">
         {label}
       </label>
       {children}
-      {error ? <p className="mt-1 text-xs text-red-400">{error}</p> : null}
+      {error ? <p className="mt-1 text-xs text-rose-600">{error}</p> : null}
     </div>
   )
 }
@@ -147,7 +147,7 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
-      <div className="rounded border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+      <div className="rounded-2xl border border-[color:var(--site-border)] bg-white px-4 py-3 text-sm text-[color:var(--site-muted)]">
         {QUOTE_SUBMISSION_DISABLED
           ? 'Dette er en previewversion. Formularen vises korrekt, men sender ikke e-mail fra denne testadresse.'
           : 'Beskriv opgaven kort og præcist. Vi sender henvendelsen direkte til virksomheden og bekræfter modtagelsen på e-mail.'}
@@ -210,7 +210,7 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
 
         <input {...register('website')} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
-        <label className="flex items-start gap-3 rounded border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80">
+        <label className="flex items-start gap-3 rounded-2xl border border-[color:var(--site-border)] bg-white px-4 py-3 text-sm text-[color:var(--site-text)]">
           <input
             type="checkbox"
             {...register('consent')}
@@ -218,24 +218,24 @@ export default function QuoteForm({ quoteForm }: QuoteFormProps) {
           />
           <span>{quoteForm.labels.consent}</span>
         </label>
-        {errors.consent?.message ? <p className="text-xs text-red-400">{errors.consent.message}</p> : null}
+        {errors.consent?.message ? <p className="text-xs text-rose-600">{errors.consent.message}</p> : null}
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full rounded-none px-8 py-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60"
-          style={{ background: 'var(--site-primary)', color: 'var(--site-dark)' }}
+          className="w-full rounded-full px-8 py-4 text-sm font-bold text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60"
+          style={{ background: 'var(--site-primary)' }}
         >
           {isSubmitting ? 'Sender...' : QUOTE_SUBMISSION_DISABLED ? 'Previewversion' : quoteForm.labels.submit}
         </button>
       </fieldset>
 
       {submitState === 'success' ? (
-        <p className="rounded border border-emerald-400/30 bg-emerald-900/30 px-4 py-3 text-sm text-emerald-300">{submitMessage}</p>
+        <p className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">{submitMessage}</p>
       ) : null}
 
       {submitState === 'error' ? (
-        <p className="rounded border border-rose-400/30 bg-rose-900/30 px-4 py-3 text-sm text-rose-300">{submitMessage}</p>
+        <p className="rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">{submitMessage}</p>
       ) : null}
     </form>
   )

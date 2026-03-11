@@ -41,15 +41,13 @@ export default function ServiceCards({
 
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {visibleServices.map((service, index) => {
-            const isEven = index % 2 === 0
-
             return (
               <ScrollReveal key={service.slug} variant="image" delay={index * 90}>
                 <Link
                   href={`/ydelser/${service.slug}`}
-                  className="group relative block overflow-hidden rounded-lg shadow-[var(--site-card-shadow)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--site-card-shadow-hover)]"
+                  className="group relative block overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--site-card-shadow-hover)]"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden sm:h-72">
                     <Image
                       src={withSiteBasePath(service.image)}
                       alt={service.title}
@@ -57,24 +55,13 @@ export default function ServiceCards({
                       sizes="(max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-all duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 flex items-center justify-center bg-[color:var(--site-dark)]/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white text-white">
-                        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                          <line x1="12" y1="5" x2="12" y2="19" />
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                      </span>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--site-dark)]/82 via-[color:var(--site-dark)]/18 to-transparent" />
+                    <div className="absolute inset-0 border border-white/0 transition-colors duration-500 group-hover:border-white/18" />
                   </div>
 
-                  <div
-                    className="px-6 py-4 text-center transition-colors duration-300"
-                    style={{
-                      background: isEven ? 'var(--site-primary)' : 'var(--site-dark)',
-                      color: isEven ? 'var(--site-dark)' : 'white',
-                    }}
-                  >
-                    <h3 className="text-base font-bold">{service.title}</h3>
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <span className="mb-3 block h-[3px] w-16 bg-[color:var(--site-primary)] transition-all duration-500 group-hover:w-24" />
+                    <h3 className="text-[1.45rem] font-bold leading-tight">{service.title}</h3>
                   </div>
                 </Link>
               </ScrollReveal>

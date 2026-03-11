@@ -10,62 +10,62 @@
 :root,
 [data-template='builderz'] {
   /* ── Core backgrounds ── */
-  --site-bg: #f5f6fa;
-  --site-bg-soft: #eef0f5;
+  --site-bg: #f2f1ec;
+  --site-bg-soft: #ebe8e1;
   --site-panel: #ffffff;
-  --site-panel-soft: #f8f9fc;
+  --site-panel-soft: #f6f4ee;
 
   /* ── Borders ── */
-  --site-border: #d5d9e2;
-  --site-border-soft: rgba(213, 217, 226, 0.78);
+  --site-border: #d7d2c7;
+  --site-border-soft: rgba(215, 210, 199, 0.78);
 
   /* ── Text ── */
-  --site-text: #1a1e2c;
-  --site-muted: #5a6275;
+  --site-text: #232821;
+  --site-muted: #62695e;
 
   /* ── Dark tones (navy — matching logo) ── */
-  --site-dark: #0a1628;
-  --site-dark-soft: #122040;
-  --site-on-dark: #f5f6fa;
-  --site-on-dark-soft: #b0b8cc;
-  --site-on-dark-border: rgba(245, 245, 245, 0.15);
-  --site-dark-overlay: rgba(10, 22, 40, 0.85);
+  --site-dark: #4f534c;
+  --site-dark-soft: #62665f;
+  --site-on-dark: #f6f5ef;
+  --site-on-dark-soft: #d8d4ca;
+  --site-on-dark-border: rgba(246, 245, 239, 0.16);
+  --site-dark-overlay: rgba(41, 47, 39, 0.78);
 
   /* ── Primary accent — Gold/Amber ── */
-  --site-primary: #f5a623;
-  --site-primary-strong: #e8960e;
-  --site-primary-soft: rgba(245, 166, 35, 0.12);
-  --site-primary-glow: rgba(245, 166, 35, 0.25);
+  --site-primary: #53b85b;
+  --site-primary-strong: #3ea748;
+  --site-primary-soft: rgba(83, 184, 91, 0.12);
+  --site-primary-glow: rgba(83, 184, 91, 0.22);
 
   /* ── Secondary accent — complementary blue ── */
-  --site-accent: #2c7be5;
-  --site-accent-soft: rgba(44, 123, 229, 0.1);
+  --site-accent: #84a77d;
+  --site-accent-soft: rgba(132, 167, 125, 0.12);
 
   /* ── Focus ── */
-  --site-focus: #f5a623;
+  --site-focus: #53b85b;
 
   /* ── Header ── */
-  --site-header: rgba(10, 22, 40, 0.97);
-  --site-topbar-bg: #f5a623;
-  --site-topbar-text: #0a1628;
-  --site-navbar-bg: #0a1628;
+  --site-header: rgba(41, 47, 39, 0.95);
+  --site-topbar-bg: rgba(41, 47, 39, 0.98);
+  --site-topbar-text: #f6f5ef;
+  --site-navbar-bg: rgba(41, 47, 39, 0.92);
   --site-navbar-text: #ffffff;
 
   /* ── Overlays / effects ── */
-  --site-panel-alpha: rgba(255, 255, 255, 0.96);
-  --site-panel-alpha-strong: rgba(255, 255, 255, 0.92);
-  --site-selection-bg: #f5a623;
-  --site-selection-text: #0a1628;
+  --site-panel-alpha: rgba(255, 255, 255, 0.98);
+  --site-panel-alpha-strong: rgba(255, 255, 255, 0.95);
+  --site-selection-bg: #53b85b;
+  --site-selection-text: #ffffff;
 
   /* ── Hero ── */
-  --hero-overlay: linear-gradient(135deg, rgba(10, 22, 40, 0.92), rgba(10, 22, 40, 0.6) 50%, rgba(10, 22, 40, 0.88));
-  --hero-glow-a: rgba(245, 166, 35, 0.18);
-  --hero-glow-b: rgba(44, 123, 229, 0.12);
+  --hero-overlay: linear-gradient(96deg, rgba(42, 46, 39, 0.7) 0%, rgba(42, 46, 39, 0.54) 36%, rgba(42, 46, 39, 0.16) 100%);
+  --hero-glow-a: rgba(83, 184, 91, 0.15);
+  --hero-glow-b: rgba(255, 255, 255, 0.06);
 
   /* ── Shape / shadow ── */
-  --site-radius: 1rem;
-  --site-card-shadow: 0 10px 40px -12px rgba(10, 22, 40, 0.15);
-  --site-card-shadow-hover: 0 20px 50px -12px rgba(10, 22, 40, 0.25);
+  --site-radius: 1.25rem;
+  --site-card-shadow: 0 16px 40px -24px rgba(44, 49, 42, 0.26);
+  --site-card-shadow-hover: 0 26px 54px -26px rgba(44, 49, 42, 0.36);
 }
 
 :root {
@@ -194,8 +194,8 @@ h6 {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); }
-  50% { box-shadow: 0 0 20px 6px rgba(245, 166, 35, 0.15); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(83, 184, 91, 0.36); }
+  50% { box-shadow: 0 0 20px 6px rgba(83, 184, 91, 0.14); }
 }
 
 @keyframes float {
@@ -269,8 +269,9 @@ h6 {
     opacity calc(var(--reveal-duration) * 0.72) var(--reveal-ease) var(--reveal-delay),
     transform var(--reveal-duration) var(--reveal-ease) var(--reveal-delay),
     filter calc(var(--reveal-duration) * 0.82) var(--reveal-ease) var(--reveal-delay),
-    clip-path var(--reveal-duration) var(--reveal-ease) var(--reveal-delay);
-  will-change: opacity, transform, filter, clip-path;
+    clip-path var(--reveal-duration) var(--reveal-ease) var(--reveal-delay),
+    box-shadow var(--reveal-duration) var(--reveal-ease) var(--reveal-delay);
+  will-change: opacity, transform, filter, clip-path, box-shadow;
   backface-visibility: hidden;
 }
 
@@ -278,6 +279,7 @@ h6 {
   opacity: 1;
   transform: translate3d(0, 0, 0) scale(1);
   filter: blur(0);
+  box-shadow: var(--site-card-shadow);
 }
 
 .scroll-reveal[data-reveal-variant='left'] {
@@ -328,12 +330,12 @@ h6 {
 }
 
 .builderz-nav-shell {
-  clip-path: polygon(1.6rem 0, 100% 0, calc(100% - 1.6rem) 100%, 0 100%);
+  clip-path: none;
 }
 
 @media (max-width: 767px) {
   .builderz-nav-shell {
-    clip-path: polygon(0.85rem 0, 100% 0, calc(100% - 0.85rem) 100%, 0 100%);
+    clip-path: none;
   }
 }
 
@@ -393,27 +395,32 @@ h6 {
     @apply rounded-xl border;
     border-color: var(--site-border);
     background: var(--site-panel);
-    box-shadow: var(--site-card-shadow);
-    transition: box-shadow 0.35s ease, transform 0.35s ease;
+    box-shadow: none;
+    transition: all 0.35s ease;
   }
 
   .panel-card:hover {
     box-shadow: var(--site-card-shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .panel-card.scroll-reveal.is-visible {
+    box-shadow: var(--site-card-shadow);
   }
 
   /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300;
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-300;
     background: var(--site-primary);
-    color: var(--site-dark);
-    box-shadow: 0 4px 14px -3px rgba(245, 166, 35, 0.4);
-    letter-spacing: 0.06em;
+    color: #ffffff;
+    box-shadow: 0 10px 24px -12px rgba(83, 184, 91, 0.56);
+    letter-spacing: 0;
   }
 
   .btn-primary:hover {
     background: var(--site-primary-strong);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px rgba(245, 166, 35, 0.5);
+    box-shadow: 0 14px 30px -14px rgba(83, 184, 91, 0.5);
   }
 
   .btn-primary:active {
@@ -426,7 +433,7 @@ h6 {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border-2 px-7 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300;
+    @apply inline-flex items-center justify-center rounded-full border-2 px-7 py-3.5 text-sm font-bold transition-all duration-300;
     border-color: var(--site-primary);
     color: var(--site-primary);
     background: transparent;
@@ -434,9 +441,9 @@ h6 {
 
   .btn-secondary:hover {
     background: var(--site-primary);
-    color: var(--site-dark);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px rgba(245, 166, 35, 0.35);
+    box-shadow: 0 10px 26px -12px rgba(83, 184, 91, 0.35);
   }
 
   .btn-secondary:focus-visible {
@@ -467,8 +474,8 @@ h6 {
   }
 
   .section-title {
-    @apply mt-3 font-display text-3xl leading-[1.12] md:text-4xl;
-    letter-spacing: -0.01em;
+    @apply mt-3 font-display text-3xl font-extrabold leading-[1.06] md:text-4xl;
+    letter-spacing: -0.04em;
     color: var(--site-text);
   }
 
@@ -507,6 +514,52 @@ h6 {
 
   .gold-underline:hover::after {
     width: 100%;
+  }
+
+  /* ── Image effects ── */
+  .scroll-reveal img {
+    transition: transform 0.6s ease, filter 0.6s ease;
+  }
+
+  .scroll-reveal.is-visible img {
+    filter: brightness(1.02) saturate(1.1);
+  }
+
+  .scroll-reveal.is-visible img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05) saturate(1.15);
+  }
+
+  /* ── Text effects ── */
+  .scroll-reveal h1,
+  .scroll-reveal h2,
+  .scroll-reveal h3,
+  .scroll-reveal p {
+    transition: color 0.4s ease, transform 0.4s ease;
+  }
+
+  .scroll-reveal.is-visible h1,
+  .scroll-reveal.is-visible h2,
+  .scroll-reveal.is-visible h3 {
+    color: var(--site-text);
+  }
+
+  .scroll-reveal.is-visible p {
+    color: var(--site-muted);
+  }
+
+  /* ── Form inputs ── */
+  .scroll-reveal input,
+  .scroll-reveal textarea,
+  .scroll-reveal select {
+    transition: all 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .scroll-reveal.is-visible input:focus,
+  .scroll-reveal.is-visible textarea:focus,
+  .scroll-reveal.is-visible select:focus {
+    border-color: var(--site-primary);
+    box-shadow: 0 0 0 3px rgba(83, 184, 91, 0.1);
   }
 
   /* ── Form ── */
