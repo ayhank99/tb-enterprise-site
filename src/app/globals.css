@@ -94,6 +94,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  overflow-x: hidden;
   overflow-x: clip;
   width: 100%;
 }
@@ -264,9 +265,12 @@ h6 {
   --reveal-delay: 0ms;
   --reveal-duration: 920ms;
   --reveal-distance: 42px;
+  --reveal-translate-x: 0px;
+  --reveal-translate-y: var(--reveal-distance);
+  --reveal-scale: 0.985;
   --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 0;
-  transform: translate3d(0, var(--reveal-distance), 0) scale(0.985);
+  transform: translate3d(var(--reveal-translate-x), var(--reveal-translate-y), 0) scale(var(--reveal-scale));
   filter: blur(14px);
   transition:
     opacity calc(var(--reveal-duration) * 0.72) var(--reveal-ease) var(--reveal-delay),
@@ -276,6 +280,8 @@ h6 {
     box-shadow var(--reveal-duration) var(--reveal-ease) var(--reveal-delay);
   will-change: opacity, transform, filter, clip-path, box-shadow;
   backface-visibility: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .scroll-reveal.is-visible {
@@ -286,15 +292,18 @@ h6 {
 }
 
 .scroll-reveal[data-reveal-variant='left'] {
-  transform: translate3d(-48px, 20px, 0) scale(0.985);
+  --reveal-translate-x: -48px;
+  --reveal-translate-y: 20px;
 }
 
 .scroll-reveal[data-reveal-variant='right'] {
-  transform: translate3d(48px, 20px, 0) scale(0.985);
+  --reveal-translate-x: 48px;
+  --reveal-translate-y: 20px;
 }
 
 .scroll-reveal[data-reveal-variant='zoom'] {
-  transform: translate3d(0, 22px, 0) scale(0.92);
+  --reveal-translate-y: 22px;
+  --reveal-scale: 0.92;
   filter: blur(18px);
 }
 
@@ -305,7 +314,7 @@ h6 {
 
 .scroll-reveal[data-reveal-variant='image'] {
   --reveal-distance: 52px;
-  transform: translate3d(0, var(--reveal-distance), 0) scale(1.06);
+  --reveal-scale: 1.06;
   filter: blur(18px) saturate(0.78);
   clip-path: inset(10% 0 0 0 round 1.75rem);
   transform-origin: center center;
@@ -568,24 +577,6 @@ h6 {
   .scroll-reveal.is-visible img:hover {
     transform: scale(1.03);
     filter: brightness(1.05) saturate(1.15);
-  }
-
-  /* ── Text effects ── */
-  .scroll-reveal h1,
-  .scroll-reveal h2,
-  .scroll-reveal h3,
-  .scroll-reveal p {
-    transition: color 0.4s ease, transform 0.4s ease;
-  }
-
-  .scroll-reveal.is-visible h1,
-  .scroll-reveal.is-visible h2,
-  .scroll-reveal.is-visible h3 {
-    color: var(--site-text);
-  }
-
-  .scroll-reveal.is-visible p {
-    color: var(--site-muted);
   }
 
   /* ── Form inputs ── */
