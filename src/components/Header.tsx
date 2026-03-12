@@ -315,6 +315,8 @@ function MobileDrawer({
             {cmsEnabled ? (
               <Link
                 href="/admin"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onClose}
                 className="flex w-full items-center justify-center rounded-full border border-white/16 bg-white/6 px-5 py-4 text-sm font-semibold text-white transition-colors hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]"
               >
@@ -406,6 +408,8 @@ export default function Header({ company, navItems, templateId }: HeaderProps) {
                 {cmsEnabled ? (
                   <Link
                     href="/admin"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-3 text-sm font-semibold transition-colors ${
                       scrolled
                         ? 'border border-white/20 bg-white/10 text-white hover:border-[color:var(--site-primary)] hover:text-[color:var(--site-primary)]'

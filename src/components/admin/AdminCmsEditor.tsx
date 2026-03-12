@@ -1,7 +1,8 @@
 'use client'
 
-import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from 'react'
+import { ChangeEvent, FormEvent, createContext, useContext, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import type { CmsState } from '@/lib/cms-store'
 import { withSiteBasePath } from '@/lib/site-paths'
@@ -19,6 +20,11 @@ type AdminCmsEditorProps = {
 }
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error'
+type EditorActionContextValue = {
+  onSave: () => Promise<void>
+  saveStatus: SaveStatus
+  isDirty: boolean
+}
 
 type TabId =
   | 'company'
@@ -116,6 +122,7 @@ const orderedHomeSectionTypes: HomeSectionType[] = ['hero', 'trustStrip', 'servi
 const ADMIN_STATE_ENDPOINT = withSiteBasePath('/api/admin/state')
 const ADMIN_LOGOUT_ENDPOINT = withSiteBasePath('/api/admin/logout')
 const ADMIN_MEDIA_ENDPOINT = withSiteBasePath('/api/admin/media')
+const EditorActionContext = createContext<EditorActionContextValue | null>(null)
 
 function deepClone<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T
@@ -380,11 +387,30 @@ type BoxProps = {
 }
 
 function EditorBox({ title, children, actions }: BoxProps) {
+  const editorActions = useContext(EditorActionContext)
+  const canSave = Boolean(editorActions?.isDirty)
+
   return (
-    <section className="panel-card min-w-0 space-y-4 overflow-hidden p-5">
-      <div className="flex items-center justify-between gap-2">
-        <h2 className="font-display text-2xl text-[color:var(--site-text)]">{title}</h2>
-        {actions}
+    <section className="panel-card min-w-0 space-y-4 overflow-hidden rounded-[1.6rem] border border-[color:var(--site-border)]/80 p-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h2 className="font-display text-2xl text-[color:var(--site-text)]">{title}</h2>
+          <p className="mt-1 text-xs uppercase tracking-[0.14em] text-[color:var(--site-muted)]">Redigér sektionen og gem direkte herfra</p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          {actions}
+          {editorActions ? (
+            <button
+              type="button"
+              onClick={() => void editorActions.onSave()}
+              disabled={editorActions.saveStatus === 'saving' || !canSave}
+              className="rounded-full bg-[color:var(--site-primary)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[color:var(--site-primary-strong)] disabled:cursor-not-allowed disabled:opacity-55"
+            >
+              {editorActions.saveStatus === 'saving' ? 'Gemmer...' : canSave ? 'Gem sektion' : 'Gemt'}
+            </button>
+          ) : null}
+        </div>
       </div>
       {children}
     </section>
@@ -713,18 +739,28 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
   }
 
   return (
-    <div className="section-soft w-full overflow-x-hidden py-10">
+    <EditorActionContext.Provider
+      value={{
+        onSave: () => handleSave(),
+        saveStatus,
+        isDirty,
+      }}
+    >
+    <div className="section-soft w-full overflow-x-hidden py-6">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
-        <div className="panel-card mb-6 space-y-5 p-6">
+        <div className="panel-card mb-6 space-y-5 rounded-[1.9rem] border border-[color:var(--site-border)]/80 p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="section-eyebrow">Kun for administrator</p>
+              <p className="section-eyebrow">Content Workspace</p>
               <h1 className="mt-1 font-display text-3xl text-[color:var(--site-text)]">CMS redigeringspanel</h1>
-              <p className="mt-2 text-sm text-[color:var(--site-muted)]">
-                Her kan du administrere skabeloner, menu, sider, tekster og billeder.
+              <p className="mt-2 max-w-2xl text-sm text-[color:var(--site-muted)]">
+                Redigér indhold i klare sektioner. Hver boks har nu sin egen gem-knap, så kunden ikke skal helt til bunden for at gemme.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
+              <Link href="/admin/chat" className="btn-secondary">
+                Chat inbox
+              </Link>
               <button type="button" onClick={refreshState} className="btn-secondary">
                 Opdater fra server
               </button>
@@ -755,8 +791,8 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)]">
-          <aside className="panel-card h-fit min-w-0 p-3">
+        <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
+          <aside className="panel-card sticky top-6 h-fit min-w-0 rounded-[1.75rem] border border-[color:var(--site-border)]/80 p-3">
             <nav className="space-y-1">
               {tabs.map((tab) => (
                 <button
@@ -2083,6 +2119,7 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
         ))}
       </datalist>
     </div>
+    </EditorActionContext.Provider>
   )
 }
 

@@ -4,7 +4,9 @@ import '@/app/globals.css'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import LocationSection from '@/components/LocationSection'
+import RouteShell from '@/components/RouteShell'
 import StructuredData from '@/components/StructuredData'
+import SiteChatWidget from '@/components/chat/SiteChatWidget'
 import { readCmsState } from '@/lib/cms-store'
 import { isPreviewDeployment, toAbsoluteSiteUrl, withSiteBasePath } from '@/lib/site-paths'
 import { defaultSiteContent, getNavItems } from '@/lib/site-data'
@@ -61,10 +63,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="da" data-template="builderz">
       <body className={poppins.variable}>
         <StructuredData content={state.content} />
-        <Header company={state.content.company} navItems={navItems} templateId="builderz" />
-        <main>{children}</main>
-        <LocationSection company={state.content.company} />
-        <Footer company={state.content.company} navItems={navItems} />
+        <RouteShell
+          adminView={children}
+          publicView={
+            <>
+              <Header company={state.content.company} navItems={navItems} templateId="builderz" />
+              <main>{children}</main>
+              <LocationSection company={state.content.company} />
+              <Footer company={state.content.company} navItems={navItems} />
+              <SiteChatWidget company={state.content.company} />
+            </>
+          }
+        />
       </body>
     </html>
   )
