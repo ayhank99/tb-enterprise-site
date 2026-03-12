@@ -1,5 +1,6 @@
 import { randomUUID } from 'crypto'
 import fs from 'fs/promises'
+import os from 'os'
 import path from 'path'
 import type { ChatConversation, ChatConversationStatus, EnsureConversationInput, VisitorMessageInput } from '@/lib/chat-model'
 import {
@@ -17,7 +18,7 @@ type ChatState = {
   conversations: ChatConversation[]
 }
 
-const DATA_DIRECTORY = path.join(process.cwd(), 'data')
+const DATA_DIRECTORY = process.env.VERCEL ? path.join(os.tmpdir(), 'tbentreprise-data') : path.join(process.cwd(), 'data')
 const CHAT_STATE_PATH = path.join(DATA_DIRECTORY, 'chat-state.json')
 
 function createDefaultState(): ChatState {
