@@ -341,6 +341,22 @@ h6 {
   }
 }
 
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible,
+  .scroll-reveal[data-reveal-variant='left'],
+  .scroll-reveal[data-reveal-variant='right'],
+  .scroll-reveal[data-reveal-variant='zoom'],
+  .scroll-reveal[data-reveal-variant='soft'],
+  .scroll-reveal[data-reveal-variant='image'] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+  }
+}
+
 .builderz-nav-shell {
   clip-path: none;
 }

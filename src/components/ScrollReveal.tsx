@@ -39,6 +39,13 @@ export default function ScrollReveal({
       return
     }
 
+    const disableReveal = window.matchMedia('(max-width: 1024px), (hover: none) and (pointer: coarse)').matches
+
+    if (disableReveal) {
+      setVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return
