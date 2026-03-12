@@ -62,7 +62,7 @@ export default function BuilderzIntroSection({
       <section className="section-block bg-[color:var(--site-bg)]">
         <Container className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <ScrollReveal variant="image" className="relative overflow-hidden rounded-[2.2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]">
-            <div className="relative min-h-[320px] sm:min-h-[420px] lg:min-h-[540px]">
+            <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[540px] w-full">
               <Image
                 src={withSiteBasePath(featureImage)}
                 alt={company.name}
@@ -73,42 +73,42 @@ export default function BuilderzIntroSection({
               <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--site-dark-overlay)] via-[color:var(--site-dark-overlay)]/40 to-transparent" />
             </div>
 
-            <div className="absolute inset-x-5 bottom-5 rounded-[1.6rem] border border-white/18 bg-[color:var(--site-dark-overlay)]/90 px-5 py-4 text-white backdrop-blur-sm sm:inset-x-7 sm:bottom-7 sm:px-6 sm:py-5">
+            <div className="absolute inset-x-3 bottom-3 rounded-[1.6rem] border border-white/18 bg-[color:var(--site-dark-overlay)]/90 px-3 py-3 text-white backdrop-blur-sm sm:inset-x-5 sm:bottom-5 sm:px-4 sm:py-4 lg:inset-x-7 lg:bottom-7 lg:px-6 lg:py-5">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">{company.name}</p>
-              <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/82">
+              <p className="mt-2 text-sm leading-relaxed text-white/82">
                 Belægning, anlæg, vedligehold og mindre entrepriser udført med ordentlig planlægning og stabil kvalitet.
               </p>
             </div>
           </ScrollReveal>
 
-          <div>
+          <div className="w-full">
             <SectionHeading eyebrow={block.eyebrow ?? 'Velkommen'} title={block.title} intro={companyStory.intro || block.intro} />
 
-            <div className="mt-8 grid gap-4">
+            <div className="mt-8 grid gap-4 w-full">
               {leadPoints.map((point, index) => (
                 <ScrollReveal
                   key={point}
                   variant="soft"
                   delay={index * 80}
-                  className="rounded-[1.4rem] border border-[color:var(--site-border)] bg-white px-5 py-4 shadow-[var(--site-card-shadow)]"
+                  className="rounded-[1.4rem] border border-[color:var(--site-border)] bg-white px-4 py-4 shadow-[var(--site-card-shadow)] w-full"
                 >
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 w-full">
                     <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[color:var(--site-primary-soft)] text-[color:var(--site-primary)]">
                       <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     </span>
-                    <p className="text-sm leading-relaxed text-[color:var(--site-muted)] sm:text-[0.98rem]">{point}</p>
+                    <p className="text-sm leading-relaxed text-[color:var(--site-muted)] flex-1">{point}</p>
                   </div>
                 </ScrollReveal>
               ))}
             </div>
 
-            <ScrollReveal delay={180} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/kontakt#tilbudsformular" className="btn-primary">
+            <ScrollReveal delay={180} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap w-full">
+              <Link href="/kontakt#tilbudsformular" className="btn-primary w-full sm:w-auto">
                 {cta.primaryLabel}
               </Link>
-              <Link href="/om-os" className="btn-secondary">
+              <Link href="/om-os" className="btn-secondary w-full sm:w-auto">
                 {cta.secondaryLabel}
               </Link>
             </ScrollReveal>

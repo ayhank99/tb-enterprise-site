@@ -60,18 +60,18 @@ export default function WhyChooseSection({ title, reasons, galleryImages, hero }
         <div>
           <SectionHeading eyebrow="Fordele" title={title} intro="Vi arbejder med tydelig planlægning, ordentlig koordinering og et kvalitetsniveau, der holder i praksis." />
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 w-full">
             {entries.map((entry, index) => (
               <ScrollReveal
                 key={entry.title}
                 variant={index % 2 === 0 ? 'left' : 'right'}
                 delay={index * 70}
-                className="rounded-[1.5rem] border border-[color:var(--site-border)] bg-white px-5 py-5 shadow-[var(--site-card-shadow)]"
+                className="rounded-[1.5rem] border border-[color:var(--site-border)] bg-white px-4 py-4 shadow-[var(--site-card-shadow)] w-full"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--site-primary-soft)] text-[color:var(--site-primary)]">
                   {entry.icon}
                 </span>
-                <h3 className="mt-4 text-xl font-bold tracking-[-0.04em] text-[color:var(--site-text)]">{entry.title}</h3>
+                <h3 className="mt-4 text-lg font-bold tracking-[-0.04em] text-[color:var(--site-text)]">{entry.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[color:var(--site-muted)]">{entry.text}</p>
               </ScrollReveal>
             ))}

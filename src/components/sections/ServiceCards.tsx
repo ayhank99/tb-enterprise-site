@@ -39,15 +39,15 @@ export default function ServiceCards({
       <Container>
         <SectionHeading eyebrow={eyebrow} title={title} intro={intro} align="center" />
 
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {visibleServices.map((service, index) => {
             return (
               <ScrollReveal key={service.slug} variant="image" delay={index * 90}>
                 <Link
                   href={`/ydelser/${service.slug}`}
-                  className="group relative block overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--site-card-shadow-hover)]"
+                  className="group relative block overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--site-card-shadow-hover)] w-full"
                 >
-                  <div className="relative h-64 overflow-hidden sm:h-72">
+                  <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden w-full">
                     <Image
                       src={withSiteBasePath(service.image)}
                       alt={service.title}
@@ -59,9 +59,9 @@ export default function ServiceCards({
                     <div className="absolute inset-0 border border-white/0 transition-colors duration-500 group-hover:border-white/18" />
                   </div>
 
-                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                    <span className="mb-3 block h-[3px] w-16 bg-[color:var(--site-primary)] transition-all duration-500 group-hover:w-24" />
-                    <h3 className="text-[1.45rem] font-bold leading-tight">{service.title}</h3>
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 text-white">
+                    <span className="mb-3 block h-[3px] w-12 sm:w-16 bg-[color:var(--site-primary)] transition-all duration-500 group-hover:w-16 sm:group-hover:w-24" />
+                    <h3 className="text-lg sm:text-[1.45rem] font-bold leading-tight">{service.title}</h3>
                   </div>
                 </Link>
               </ScrollReveal>

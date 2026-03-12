@@ -95,6 +95,7 @@ body {
   padding: 0;
   min-height: 100%;
   overflow-x: clip;
+  width: 100%;
 }
 
 body {
@@ -103,6 +104,8 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -397,6 +400,9 @@ h6 {
     background: var(--site-panel);
     box-shadow: none;
     transition: all 0.35s ease;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .panel-card:hover {
@@ -406,6 +412,40 @@ h6 {
 
   .panel-card.scroll-reveal.is-visible {
     box-shadow: var(--site-card-shadow);
+  }
+
+  /* Mobile responsive fixes */
+  @media (max-width: 640px) {
+    .panel-card {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+    
+    /* Grid fixes */
+    .grid {
+      width: 100%;
+    }
+    
+    /* Text overflow fixes */
+    * {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    /* Button fixes */
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  /* Tablet fixes */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .panel-card {
+      margin: 0 auto;
+      max-width: 100%;
+    }
   }
 
   /* ── Buttons ── */
