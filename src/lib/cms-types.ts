@@ -7,7 +7,7 @@ export type CmsState = {
   updatedAt: string
 }
 
-export type CmsStorageMode = 'file' | 'postgres'
+export type CmsStorageMode = 'file' | 'postgres' | 'github'
 
 export type CmsMediaFile = {
   name: string

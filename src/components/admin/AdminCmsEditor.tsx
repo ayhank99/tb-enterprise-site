@@ -507,7 +507,7 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
     return items
   }, [imageOptions, videoOptions])
   const homeSections = ensureHomeSections(draft.content.pages.home.sections)
-  const persistentStorageEnabled = storageMode === 'postgres'
+  const persistentStorageEnabled = storageMode !== 'file'
 
   const mutateState = (updater: (state: CmsState) => void) => {
     setDraft((previous) => {

@@ -75,6 +75,7 @@ Til Vercel:
 - uden database er `data/cms-state.json` og `public/uploads` ikke permanente
 - saet `CMS_DATABASE_URL` og evt. `CMS_DATABASE_SSL=true` for at gemme CMS og medier permanent
 - hvis du allerede bruger `CHAT_DATABASE_URL`, kan CMS automatisk genbruge den forbindelse
+- alternativt kan du saette `GITHUB_CONTENTS_TOKEN`, saa admin gemmer direkte tilbage i GitHub-repoet og Vercel deployer derfra
 
 Hvis serveren kun understotter ren PHP/static hosting, kan denne version ikke kores professionelt som den er.
 
@@ -154,6 +155,7 @@ Redigering gemmes server-side i:
 - `data/cms-state.json`
 
 Hvis `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` er sat, gemmes CMS-data og mediefiler i PostgreSQL i stedet for den lokale filstruktur.
+Hvis `GITHUB_CONTENTS_TOKEN` er sat, kan CMS i stedet skrive direkte til repo-filerne i GitHub.
 
 ## Centrale filer
 

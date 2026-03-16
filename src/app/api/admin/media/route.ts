@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
   } catch {
     if (!isCmsPersistentStorageConfigured()) {
       return NextResponse.json(
-        { error: 'Media upload paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL eller CHAT_DATABASE_URL.' },
+        { error: 'Media upload paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL, CHAT_DATABASE_URL eller GitHub storage token.' },
         { status: 503 }
       )
     }

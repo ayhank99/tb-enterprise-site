@@ -54,7 +54,7 @@ export async function PUT(request: NextRequest) {
   } catch {
     if (!isCmsPersistentStorageConfigured()) {
       return NextResponse.json(
-        { error: 'Gemning paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL eller CHAT_DATABASE_URL.' },
+        { error: 'Gemning paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL, CHAT_DATABASE_URL eller GitHub storage token.' },
         { status: 503 }
       )
     }
