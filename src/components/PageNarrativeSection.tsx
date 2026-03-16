@@ -69,10 +69,10 @@ export default function PageNarrativeSection({
             className="relative min-h-[320px] overflow-hidden rounded-[2rem] border border-[color:var(--site-border)] bg-[color:var(--site-panel)] shadow-[var(--site-card-shadow-hover)]"
           >
             <Image src={resolvedImageSrc} alt={imageAlt} fill sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--site-dark-overlay)]/58 via-transparent to-transparent" />
-            <div className="absolute inset-x-6 bottom-6 rounded-[1.4rem] border border-white/22 bg-white/92 px-5 py-4 text-[color:var(--site-text)] shadow-[var(--site-card-shadow)] backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--site-dark-overlay)]/76 via-[color:var(--site-dark-overlay)]/28 to-transparent" />
+            <div className="absolute inset-x-6 bottom-6 rounded-[1.4rem] border border-white/14 bg-[color:var(--site-dark-overlay)]/82 px-5 py-4 text-white shadow-[0_30px_65px_-36px_rgba(15,23,42,0.9)] backdrop-blur-md">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[color:var(--site-primary)]">TB Entreprise</p>
-              <p className="mt-2 text-sm leading-relaxed text-[color:var(--site-muted)]">
+              <p className="mt-2 text-sm leading-relaxed text-white/88">
                 Professionelle løsninger inden for belægning, anlæg, drift og mindre entrepriser i Storkøbenhavn.
               </p>
             </div>
