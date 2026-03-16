@@ -3,6 +3,8 @@ import { readCmsState } from '@/lib/cms-store'
 import { toAbsoluteSiteUrl } from '@/lib/site-paths'
 import { defaultSiteContent } from '@/lib/site-data'
 
+export const revalidate = 0
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const state = await readCmsState()
   const content = state.content

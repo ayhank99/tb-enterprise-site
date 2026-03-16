@@ -17,6 +17,8 @@ const poppins = Poppins({
   variable: '--font-sans',
 })
 
+export const revalidate = 0
+
 export async function generateMetadata(): Promise<Metadata> {
   const state = await readCmsState()
   const seo = state.content.seo ?? defaultSiteContent.seo

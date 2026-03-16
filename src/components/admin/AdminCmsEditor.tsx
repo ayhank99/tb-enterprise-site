@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, createContext, useContext, useEffect, useMemo, 
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import type { CmsState } from '@/lib/cms-store'
+import type { CmsState, CmsStorageMode } from '@/lib/cms-types'
 import { withSiteBasePath } from '@/lib/site-paths'
 import {
   defaultSiteContent,
@@ -17,6 +17,7 @@ import {
 
 type AdminCmsEditorProps = {
   initialState: CmsState
+  storageMode: CmsStorageMode
 }
 
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error'
@@ -417,7 +418,7 @@ function EditorBox({ title, children, actions }: BoxProps) {
   )
 }
 
-export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
+export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEditorProps) {
   const router = useRouter()
   const [draft, setDraft] = useState<CmsState>(initialState)
   const [activeTab, setActiveTab] = useState<TabId>('company')
@@ -506,6 +507,7 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
     return items
   }, [imageOptions, videoOptions])
   const homeSections = ensureHomeSections(draft.content.pages.home.sections)
+  const persistentStorageEnabled = storageMode === 'postgres'
 
   const mutateState = (updater: (state: CmsState) => void) => {
     setDraft((previous) => {
@@ -785,7 +787,20 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
             <span className={`rounded-full px-3 py-1 font-semibold ${isDirty ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
               {isDirty ? 'Ikke-gemte ændringer' : 'Synkroniseret med gemt version'}
             </span>
+            <span className={`rounded-full px-3 py-1 font-semibold ${persistentStorageEnabled ? 'bg-sky-100 text-sky-800' : 'bg-rose-100 text-rose-800'}`}>
+              {persistentStorageEnabled ? 'Permanent database-lagring aktiv' : 'Lokal fil-lagring aktiv'}
+            </span>
             {saveStatus === 'saved' ? <span className="text-emerald-700">Seneste gemning lykkedes.</span> : null}
+            {!persistentStorageEnabled ? (
+              <span className="text-rose-700">
+                Pa Vercel skal `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` vaere sat, ellers forsvinder CMS og medier ved ny deploy eller genstart.
+              </span>
+            ) : null}
+            {!persistentStorageEnabled ? (
+              <span className="hidden text-rose-700">
+                PÃ¥ Vercel skal `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` vÃ¦re sat, ellers forsvinder CMS og medier ved ny deploy eller genstart.
+              </span>
+            ) : null}
             {error ? <span className="text-rose-700">{error}</span> : null}
             {!error && notice ? <span className="text-sky-700">{notice}</span> : null}
           </div>
@@ -2011,6 +2026,16 @@ export default function AdminCmsEditor({ initialState }: AdminCmsEditorProps) {
                     Opdater liste
                   </button>
                   <p className="text-xs text-[color:var(--site-muted)]">
+                    {persistentStorageEnabled
+                      ? 'Filer gemmes permanent i databasen og serveres fra /media/... URL\'er.'
+                      : 'Lokal fallback bruger public/uploads. Pa Vercel er det ikke permanent, saet CMS_DATABASE_URL eller CHAT_DATABASE_URL for at bevare medierne.'}
+                  </p>
+                  <p className="hidden text-xs text-[color:var(--site-muted)]">
+                    {persistentStorageEnabled
+                      ? 'Filer gemmes permanent i databasen og serveres fra /media/... URL\'er.'
+                      : 'Lokal fallback bruger public/uploads. PÃ¥ Vercel er det ikke permanent, sÃ¥ sÃ¦t CMS_DATABASE_URL eller CHAT_DATABASE_URL for at bevare medierne.'}
+                  </p>
+                  <p className="hidden text-xs text-[color:var(--site-muted)]">
                     Lokalt samles filer i `public/uploads`, men pÃ¥ Vercel bÃ¸r permanente medier ligge pÃ¥ kundens eget domÃ¦ne,
                     f.eks. <span className="font-semibold">https://tbgruppen.dk/uploads/filnavn.png</span>.
                   </p>

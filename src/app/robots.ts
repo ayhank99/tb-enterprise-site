@@ -3,6 +3,8 @@ import { readCmsState } from '@/lib/cms-store'
 import { getSiteOrigin, isPreviewDeployment, toAbsoluteSiteUrl } from '@/lib/site-paths'
 import { defaultSiteContent } from '@/lib/site-data'
 
+export const revalidate = 0
+
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const state = await readCmsState()
   const siteUrl = state.content.seo.siteUrl || defaultSiteContent.seo.siteUrl

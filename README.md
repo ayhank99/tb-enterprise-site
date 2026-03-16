@@ -70,6 +70,12 @@ Projektet er en Next.js-app med serverfunktioner og lokalt CMS-datalager. Det be
 - CMS skriver til `data/cms-state.json`, saa serveren skal have vedvarende skriveadgang
 - tilbudsformularen bruger `public/quote-handler.php` til rigtig mail via PHP `mail()`
 
+Til Vercel:
+
+- uden database er `data/cms-state.json` og `public/uploads` ikke permanente
+- saet `CMS_DATABASE_URL` og evt. `CMS_DATABASE_SSL=true` for at gemme CMS og medier permanent
+- hvis du allerede bruger `CHAT_DATABASE_URL`, kan CMS automatisk genbruge den forbindelse
+
 Hvis serveren kun understotter ren PHP/static hosting, kan denne version ikke kores professionelt som den er.
 
 ### Mail for tilbudsformular
@@ -146,6 +152,8 @@ I `/admin/cms` kan kunden redigere:
 Redigering gemmes server-side i:
 
 - `data/cms-state.json`
+
+Hvis `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` er sat, gemmes CMS-data og mediefiler i PostgreSQL i stedet for den lokale filstruktur.
 
 ## Centrale filer
 

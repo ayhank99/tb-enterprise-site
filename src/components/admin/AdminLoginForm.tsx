@@ -44,7 +44,7 @@ export default function AdminLoginForm() {
     <form onSubmit={handleSubmit} className="panel-card mx-auto max-w-md space-y-5 p-8">
       <div>
         <p className="section-eyebrow">Kunde adgang</p>
-        <h1 className="mt-2 font-display text-3xl">Admin login</h1>
+        <h1 className="mt-2 font-display text-3xl text-[color:var(--site-text)]">Admin login</h1>
       </div>
 
       {showEnvironmentHint ? (
@@ -62,7 +62,7 @@ export default function AdminLoginForm() {
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] px-4 py-3"
+          className="w-full rounded-xl border border-[color:var(--site-border)] bg-[color:var(--site-panel)] px-4 py-3 text-[color:var(--site-text)] outline-none placeholder:text-[color:var(--site-muted)] focus:border-[color:var(--site-focus)]"
           autoComplete="current-password"
         />
       </div>

@@ -16,10 +16,7 @@ type ServicePageProps = {
   }
 }
 
-export async function generateStaticParams() {
-  const state = await readCmsState()
-  return state.content.services.map((service) => ({ slug: service.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const state = await readCmsState()

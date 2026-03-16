@@ -16,10 +16,7 @@ type CustomPageProps = {
   }
 }
 
-export async function generateStaticParams() {
-  const state = await readCmsState()
-  return state.content.customPages.map((page) => ({ slug: page.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: CustomPageProps): Promise<Metadata> {
   const state = await readCmsState()
