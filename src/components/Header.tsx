@@ -137,27 +137,13 @@ function DesktopNav({
                             <Link
                               role="menuitem"
                               href={child.href}
-                              className={`group/item flex items-center gap-3 rounded-[1.05rem] px-4 py-3 transition-all duration-200 ${
+                              className={`group/item flex items-center justify-between gap-4 rounded-[1.05rem] px-5 py-3.5 transition-all duration-200 ${
                                 childActive
                                   ? 'bg-[color:var(--site-primary-strong)] text-white'
                                   : 'text-[color:var(--site-text)] hover:bg-[color:var(--site-primary-strong)] hover:text-white'
                               }`}
                             >
-                              <span
-                                className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[11px] font-bold uppercase ${
-                                  childActive
-                                    ? 'bg-white/14 text-white ring-1 ring-white/16'
-                                    : 'bg-[color:var(--site-bg-soft)] text-[color:var(--site-primary-strong)] ring-1 ring-[color:var(--site-border)] group-hover/item:bg-white/12 group-hover/item:text-white group-hover/item:ring-white/14'
-                                }`}
-                              >
-                                {child.label.slice(0, 2)}
-                              </span>
-                              <span className="min-w-0 flex-1">
-                                <span className="block text-sm font-semibold">{child.label}</span>
-                                <span className={`mt-0.5 block text-[11px] ${childActive ? 'text-white/78' : 'text-[color:var(--site-muted)] group-hover/item:text-white/78'}`}>
-                                  {item.href === '/ydelser' ? 'Se ydelse' : 'Se underside'}
-                                </span>
-                              </span>
+                              <span className="min-w-0 flex-1 text-sm font-semibold">{child.label}</span>
                               <svg
                                 viewBox="0 0 16 16"
                                 className={`h-4 w-4 shrink-0 transition-all duration-200 ${
@@ -292,10 +278,10 @@ function MobileDrawer({
                           <Link
                             href={child.href}
                             onClick={onClose}
-                            className={`block rounded-xl px-3 py-2.5 text-sm transition-colors ${
+                            className={`block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
                               isRouteActive(pathname, child.href)
-                                ? 'text-[color:var(--site-primary)]'
-                                : 'text-white/78 hover:text-[color:var(--site-primary)]'
+                                ? 'bg-white/10 text-white'
+                                : 'text-white/92 hover:bg-white/7 hover:text-white'
                             }`}
                           >
                             {child.label}
