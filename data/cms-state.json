@@ -285,7 +285,7 @@
         "href": "/galleri"
       },
       {
-        "src": "https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1200&q=80",
+        "src": "/media/itbni-f0cdf437.jpg",
         "alt": "Færdigt gårdanlæg med stenbelægning og grøn beplantning",
         "title": "Færdigt gårdanlæg",
         "category": "Anlæg",
@@ -646,5 +646,5 @@
       "locale": "da_DK"
     }
   },
-  "updatedAt": "2026-03-16T13:49:05.065Z"
+  "updatedAt": "2026-03-16T13:52:08.053Z"
 }
