@@ -278,13 +278,15 @@ function MobileDrawer({
                           <Link
                             href={child.href}
                             onClick={onClose}
-                            className={`block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+                            className={`group/sub block rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
                               isRouteActive(pathname, child.href)
-                                ? 'bg-white/10 text-[color:var(--site-on-dark)]'
-                                : 'text-[color:var(--site-on-dark)] hover:bg-white/7 hover:text-white'
+                                ? 'bg-white/12 text-[color:var(--site-on-dark)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
+                                : 'text-[color:var(--site-on-dark)] hover:bg-white/14 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] focus-visible:bg-white/14 focus-visible:text-white focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
                             }`}
                           >
-                            <span className="block text-[color:var(--site-on-dark)]">{child.label}</span>
+                            <span className={`block transition-colors ${isRouteActive(pathname, child.href) ? 'text-[color:var(--site-on-dark)]' : 'text-[color:var(--site-on-dark)] group-hover/sub:text-white group-focus-visible/sub:text-white'}`}>
+                              {child.label}
+                            </span>
                           </Link>
                         </li>
                       ))}
