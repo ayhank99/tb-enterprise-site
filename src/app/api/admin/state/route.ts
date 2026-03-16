@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { CMS_AUTH_COOKIE, createSessionValue } from '@/lib/admin-auth'
-import { readCmsState, writeCmsState } from '@/lib/cms-store'
+import { isCmsPersistentStorageConfigured, readCmsState, writeCmsState } from '@/lib/cms-store'
 import { resolveSiteContent } from '@/lib/site-data'
 import { DEFAULT_TEMPLATE_ID } from '@/lib/templates'
 
@@ -16,8 +16,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const state = await readCmsState()
-  return NextResponse.json(state)
+  try {
+    const state = await readCmsState()
+    return NextResponse.json(state)
+  } catch {
+    return NextResponse.json({ error: 'CMS-data kunne ikke indlaeses.' }, { status: 500 })
+  }
 }
 
 export async function PUT(request: NextRequest) {
@@ -40,10 +44,21 @@ export async function PUT(request: NextRequest) {
   const source = body as Record<string, unknown>
   const nextContent = resolveSiteContent(source.content)
 
-  const saved = await writeCmsState({
-    activeTemplate: DEFAULT_TEMPLATE_ID,
-    content: nextContent,
-  })
+  try {
+    const saved = await writeCmsState({
+      activeTemplate: DEFAULT_TEMPLATE_ID,
+      content: nextContent,
+    })
 
-  return NextResponse.json(saved)
+    return NextResponse.json(saved)
+  } catch {
+    if (!isCmsPersistentStorageConfigured()) {
+      return NextResponse.json(
+        { error: 'Gemning paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL eller CHAT_DATABASE_URL.' },
+        { status: 503 }
+      )
+    }
+
+    return NextResponse.json({ error: 'Gemning mislykkedes.' }, { status: 500 })
+  }
 }

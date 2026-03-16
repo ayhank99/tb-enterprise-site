@@ -548,8 +548,9 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
       setJsonDraft(JSON.stringify(next.content, null, 2))
       setSavedSnapshot(JSON.stringify({ activeTemplate: next.activeTemplate, content: next.content }))
       setNotice('Seneste data fra serveren er indlæst.')
-    } catch {
-      setError('CMS-data kunne ikke indlæses.')
+    } catch (refreshError) {
+      const text = refreshError instanceof Error ? refreshError.message : 'CMS-data kunne ikke indlaeses.'
+      setError(text)
     }
   }
 
@@ -576,7 +577,8 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
       }
 
       if (!response.ok) {
-        throw new Error('Gemning mislykkedes')
+        const payload = (await response.json().catch(() => ({}))) as { error?: string }
+        throw new Error(payload.error ?? 'Gemning mislykkedes')
       }
 
       const saved = (await response.json()) as CmsState
@@ -585,9 +587,10 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
       setSavedSnapshot(JSON.stringify({ activeTemplate: saved.activeTemplate, content: saved.content }))
       setSaveStatus('saved')
       setNotice('Ændringerne er gemt.')
-    } catch {
+    } catch (saveError) {
+      const text = saveError instanceof Error ? saveError.message : 'Der opstod en fejl under gemning.'
       setSaveStatus('error')
-      setError('Der opstod en fejl under gemning.')
+      setError(text)
     }
   }
 
@@ -615,13 +618,15 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
       }
 
       if (!response.ok) {
-        throw new Error('Kunne ikke hente medier')
+        const payload = (await response.json().catch(() => ({}))) as { error?: string }
+        throw new Error(payload.error ?? 'Kunne ikke hente medier')
       }
 
       const payload = (await response.json()) as { media?: MediaFile[] }
       setMediaFiles(payload.media ?? [])
-    } catch {
-      setError('Medielisten kunne ikke indlæses.')
+    } catch (mediaError) {
+      const text = mediaError instanceof Error ? mediaError.message : 'Medielisten kunne ikke indlaeses.'
+      setError(text)
     } finally {
       setMediaLoading(false)
     }
@@ -787,15 +792,7 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
             <span className={`rounded-full px-3 py-1 font-semibold ${isDirty ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'}`}>
               {isDirty ? 'Ikke-gemte ændringer' : 'Synkroniseret med gemt version'}
             </span>
-            <span className={`rounded-full px-3 py-1 font-semibold ${persistentStorageEnabled ? 'bg-sky-100 text-sky-800' : 'bg-rose-100 text-rose-800'}`}>
-              {persistentStorageEnabled ? 'Permanent database-lagring aktiv' : 'Lokal fil-lagring aktiv'}
-            </span>
             {saveStatus === 'saved' ? <span className="text-emerald-700">Seneste gemning lykkedes.</span> : null}
-            {!persistentStorageEnabled ? (
-              <span className="text-rose-700">
-                Pa Vercel skal `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` vaere sat, ellers forsvinder CMS og medier ved ny deploy eller genstart.
-              </span>
-            ) : null}
             {!persistentStorageEnabled ? (
               <span className="hidden text-rose-700">
                 PÃ¥ Vercel skal `CMS_DATABASE_URL` eller `CHAT_DATABASE_URL` vÃ¦re sat, ellers forsvinder CMS og medier ved ny deploy eller genstart.
@@ -831,7 +828,7 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
             </nav>
           </aside>
 
-          <form onSubmit={handleSave} className="min-w-0 space-y-6">
+          <form key={activeTab} onSubmit={handleSave} className="min-w-0 space-y-6">
             {activeTab === 'company' ? (
               <>
                 <EditorBox title="Virksomhedsoplysninger">
@@ -2027,8 +2024,8 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
                   </button>
                   <p className="text-xs text-[color:var(--site-muted)]">
                     {persistentStorageEnabled
-                      ? 'Filer gemmes permanent i databasen og serveres fra /media/... URL\'er.'
-                      : 'Lokal fallback bruger public/uploads. Pa Vercel er det ikke permanent, saet CMS_DATABASE_URL eller CHAT_DATABASE_URL for at bevare medierne.'}
+                      ? 'Upload billeder og videoer direkte til mediebiblioteket.'
+                      : 'Upload bruger permanent database-lagring, naar deploymenten har databaseforbindelse.'}
                   </p>
                   <p className="hidden text-xs text-[color:var(--site-muted)]">
                     {persistentStorageEnabled

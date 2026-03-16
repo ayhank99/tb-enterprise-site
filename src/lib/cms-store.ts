@@ -16,3 +16,7 @@ export const deleteCmsMediaFile = store.deleteCmsMediaFile
 export function getCmsStorageMode(): CmsStorageMode {
   return postgresStore.isPostgresCmsStoreConfigured() ? 'postgres' : 'file'
 }
+
+export function isCmsPersistentStorageConfigured() {
+  return getCmsStorageMode() === 'postgres'
+}

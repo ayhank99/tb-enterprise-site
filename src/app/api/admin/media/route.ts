@@ -2,7 +2,7 @@ import path from 'path'
 import { NextRequest, NextResponse } from 'next/server'
 import { CMS_AUTH_COOKIE, createSessionValue } from '@/lib/admin-auth'
 import { ALLOWED_MEDIA_EXTENSIONS, getCmsMediaContentType } from '@/lib/cms-media-utils'
-import { deleteCmsMediaFile, listCmsMediaFiles, saveCmsMediaFile } from '@/lib/cms-store'
+import { deleteCmsMediaFile, isCmsPersistentStorageConfigured, listCmsMediaFiles, saveCmsMediaFile } from '@/lib/cms-store'
 
 export const runtime = 'nodejs'
 
@@ -16,8 +16,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const media = await listCmsMediaFiles()
-  return NextResponse.json({ media })
+  try {
+    const media = await listCmsMediaFiles()
+    return NextResponse.json({ media })
+  } catch {
+    return NextResponse.json({ error: 'Medier kunne ikke indlaeses.' }, { status: 500 })
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -45,15 +49,26 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Filen er for stor (max 50MB)' }, { status: 400 })
   }
 
-  const file = await saveCmsMediaFile({
-    originalName: input.name,
-    contentType: input.type?.trim() || getCmsMediaContentType(input.name),
-    buffer: Buffer.from(bytes),
-  })
+  try {
+    const file = await saveCmsMediaFile({
+      originalName: input.name,
+      contentType: input.type?.trim() || getCmsMediaContentType(input.name),
+      buffer: Buffer.from(bytes),
+    })
 
-  return NextResponse.json({
-    file,
-  })
+    return NextResponse.json({
+      file,
+    })
+  } catch {
+    if (!isCmsPersistentStorageConfigured()) {
+      return NextResponse.json(
+        { error: 'Media upload paa Vercel kraever POSTGRES_URL, CMS_DATABASE_URL eller CHAT_DATABASE_URL.' },
+        { status: 503 }
+      )
+    }
+
+    return NextResponse.json({ error: 'Upload mislykkedes.' }, { status: 500 })
+  }
 }
 
 export async function DELETE(request: NextRequest) {
@@ -67,6 +82,7 @@ export async function DELETE(request: NextRequest) {
   if (!filename) {
     return NextResponse.json({ error: 'Filnavn mangler' }, { status: 400 })
   }
+
   try {
     await deleteCmsMediaFile(filename)
   } catch {

@@ -22,8 +22,23 @@ type CmsMediaRow = {
   updated_at: Date | string
 }
 
-const CMS_DATABASE_URL = process.env.CMS_DATABASE_URL?.trim() || process.env.CHAT_DATABASE_URL?.trim() || ''
-const CMS_DATABASE_SSL = process.env.CMS_DATABASE_SSL?.trim() || process.env.CHAT_DATABASE_SSL?.trim() || ''
+function getConfiguredDatabaseUrl() {
+  return (
+    process.env.CMS_DATABASE_URL?.trim() ||
+    process.env.CHAT_DATABASE_URL?.trim() ||
+    process.env.POSTGRES_URL_NON_POOLING?.trim() ||
+    process.env.POSTGRES_URL?.trim() ||
+    process.env.DATABASE_URL?.trim() ||
+    ''
+  )
+}
+
+function getConfiguredDatabaseSsl() {
+  return process.env.CMS_DATABASE_SSL?.trim() || process.env.CHAT_DATABASE_SSL?.trim() || ''
+}
+
+const CMS_DATABASE_URL = getConfiguredDatabaseUrl()
+const CMS_DATABASE_SSL = getConfiguredDatabaseSsl()
 
 let pool: Pool | null = null
 let schemaReady: Promise<void> | null = null
