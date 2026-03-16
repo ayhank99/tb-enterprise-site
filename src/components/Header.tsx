@@ -280,11 +280,11 @@ function MobileDrawer({
                             onClick={onClose}
                             className={`block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
                               isRouteActive(pathname, child.href)
-                                ? 'bg-white/10 text-white'
-                                : 'text-white/92 hover:bg-white/7 hover:text-white'
+                                ? 'bg-white/10 text-[color:var(--site-on-dark)]'
+                                : 'text-[color:var(--site-on-dark)] hover:bg-white/7 hover:text-white'
                             }`}
                           >
-                            {child.label}
+                            <span className="block text-[color:var(--site-on-dark)]">{child.label}</span>
                           </Link>
                         </li>
                       ))}
