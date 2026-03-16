@@ -9,7 +9,7 @@
       "phoneHref": "tel:+4593800426",
       "email": "info@tbgruppen.dk",
       "address": "Lyskær 8 A, st. th, 2730 Herlev",
-      "cvr": "CVR-nr 45607569",
+      "cvr": "45607569",
       "openingHours": "Man-fre 07:00-17:00",
       "serviceAreas": [
         "Herlev",
@@ -654,5 +654,5 @@
       "locale": "da_DK"
     }
   },
-  "updatedAt": "2026-03-16T13:53:04.697Z"
+  "updatedAt": "2026-03-16T21:14:38.428Z"
 }
