@@ -257,7 +257,7 @@
         "href": "/galleri"
       },
       {
-        "src": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80",
+        "src": "/media/lawfe-fb6335ac.jpg",
         "alt": "Stor terrasse med fliser i varme grå nuancer",
         "title": "Terrasse i varme toner",
         "category": "Terrasse",
@@ -646,5 +646,5 @@
       "locale": "da_DK"
     }
   },
-  "updatedAt": "2026-03-16T13:44:59.942Z"
+  "updatedAt": "2026-03-16T13:45:10.049Z"
 }
