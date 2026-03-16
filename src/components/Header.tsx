@@ -280,8 +280,8 @@ function MobileDrawer({
                             onClick={onClose}
                             className={`group/sub block rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200 ${
                               isRouteActive(pathname, child.href)
-                                ? 'bg-white/12 text-[color:var(--site-on-dark)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
-                                : 'text-[color:var(--site-on-dark)] hover:bg-white/14 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] focus-visible:bg-white/14 focus-visible:text-white focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]'
+                                ? 'bg-white/16 text-[color:var(--site-on-dark)] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]'
+                                : 'text-[color:var(--site-on-dark)] hover:bg-white/22 hover:text-white hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)] focus-visible:bg-white/22 focus-visible:text-white focus-visible:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]'
                             }`}
                           >
                             <span className={`block transition-colors ${isRouteActive(pathname, child.href) ? 'text-[color:var(--site-on-dark)]' : 'text-[color:var(--site-on-dark)] group-hover/sub:text-white group-focus-visible/sub:text-white'}`}>
