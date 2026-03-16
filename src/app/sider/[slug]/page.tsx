@@ -8,7 +8,7 @@ import QuoteSection from '@/components/sections/QuoteSection'
 import { readCmsState } from '@/lib/cms-store'
 import { getCustomPageNarrative } from '@/lib/professional-copy'
 import { withSiteBasePath } from '@/lib/site-paths'
-import { getCustomPageBySlug } from '@/lib/site-data'
+import { getCustomPageBySlug, getCustomPageHeroImage } from '@/lib/site-data'
 
 type CustomPageProps = {
   params: {
@@ -45,13 +45,15 @@ export default async function CustomPage({ params }: CustomPageProps) {
     notFound()
   }
 
+  const heroImage = getCustomPageHeroImage(state.content, page.slug)
+
   return (
     <>
       <PageHero
         eyebrow={page.menuLabel}
         title={page.title}
         intro={page.intro}
-        imageSrc={state.content.galleryImages[0]?.src ?? state.content.hero.backgroundImage}
+        imageSrc={heroImage}
         imageAlt={page.title}
         primaryCtaLabel="Kontakt os"
         primaryCtaHref="/kontakt#tilbudsformular"
@@ -81,7 +83,7 @@ export default async function CustomPage({ params }: CustomPageProps) {
 
       <PageNarrativeSection
         block={getCustomPageNarrative(page)}
-        imageSrc={state.content.galleryImages[0]?.src ?? state.content.hero.backgroundImage}
+        imageSrc={heroImage}
         imageAlt={page.title}
       />
       <QuoteSection company={state.content.company} quoteForm={state.content.quoteForm} templateId={state.activeTemplate} compact />

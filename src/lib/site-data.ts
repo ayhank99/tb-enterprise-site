@@ -37,6 +37,7 @@ export type CustomPage = {
   menuLabel: string
   title: string
   intro: string
+  heroImage: string
   showInMenu: boolean
   sections: CustomPageSection[]
 }
@@ -109,6 +110,7 @@ export type SiteContent = {
     secondaryCtaHref: string
     backgroundType: 'image' | 'video'
     backgroundImage: string
+    backgroundSlideshow: string[]
     backgroundVideo: string
   }
   trustPoints: string[]
@@ -300,6 +302,21 @@ export function getServiceBySlug(content: SiteContent, slug: string) {
 
 export function getCustomPageBySlug(content: SiteContent, slug: string) {
   return content.customPages.find((page) => page.slug === slug)
+}
+
+export function getCustomPageHeroImage(content: SiteContent, slug: string) {
+  const pageIndex = content.customPages.findIndex((page) => page.slug === slug)
+  const page = pageIndex >= 0 ? content.customPages[pageIndex] : undefined
+
+  if (page?.heroImage?.trim()) {
+    return page.heroImage
+  }
+
+  if (content.galleryImages.length > 0 && pageIndex >= 0) {
+    return content.galleryImages[pageIndex % content.galleryImages.length]?.src ?? content.galleryImages[0].src
+  }
+
+  return content.hero.backgroundImage
 }
 
 

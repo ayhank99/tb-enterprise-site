@@ -381,6 +381,67 @@ function VideoPickerField(props: Omit<MediaPickerFieldProps, 'kind'>) {
   return <MediaPickerField {...props} kind="video" />
 }
 
+type ImageSequenceFieldProps = {
+  label: string
+  values: string[]
+  onChange: (values: string[]) => void
+  options: MediaOption[]
+  addLabel?: string
+  helper?: string
+}
+
+function ImageSequenceField({ label, values, onChange, options, addLabel = 'Tilfoj billede', helper }: ImageSequenceFieldProps) {
+  return (
+    <div className="space-y-3">
+      <div>
+        <p className="text-sm font-semibold text-[color:var(--site-text)]">{label}</p>
+        {helper ? <p className="mt-1 text-sm text-[color:var(--site-muted)]">{helper}</p> : null}
+      </div>
+
+      {values.length > 0 ? (
+        <div className="space-y-4">
+          {values.map((value, index) => (
+            <article key={`${value || 'slide'}-${index}`} className="rounded-2xl border border-[color:var(--site-border)] bg-[color:var(--site-panel-soft)] p-4">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <p className="text-sm font-semibold text-[color:var(--site-text)]">Slide #{index + 2}</p>
+                <button
+                  type="button"
+                  className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700"
+                  onClick={() => onChange(values.filter((_, valueIndex) => valueIndex !== index))}
+                >
+                  Fjern
+                </button>
+              </div>
+              <ImagePickerField
+                label={`Slideshow-billede ${index + 2}`}
+                value={value}
+                options={options}
+                onChange={(nextValue) => {
+                  const nextValues = [...values]
+                  nextValues[index] = nextValue
+                  onChange(nextValues)
+                }}
+              />
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="rounded-2xl border border-dashed border-[color:var(--site-border)] bg-[color:var(--site-panel-soft)] px-4 py-4 text-sm text-[color:var(--site-muted)]">
+          Der er endnu ingen ekstra slideshow-billeder. Det primaere baggrundsbillede bruges som forste slide.
+        </p>
+      )}
+
+      <button
+        type="button"
+        className="btn-secondary"
+        onClick={() => onChange([...values, ''])}
+      >
+        {addLabel}
+      </button>
+    </div>
+  )
+}
+
 type BoxProps = {
   title: string
   children: React.ReactNode
@@ -911,6 +972,16 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
                     <p className="text-sm text-[color:var(--site-muted)]">
                       Videoen afspilles automatisk, muted og i loop. Billedet bruges som poster og fallback.
                     </p>
+                  ) : null}
+                  {draft.content.hero.backgroundType === 'image' ? (
+                    <ImageSequenceField
+                      label="Ekstra slideshow-billeder"
+                      helper="Forsiden viser baggrundsbilledet forst og skifter derefter automatisk mellem billederne herunder."
+                      values={draft.content.hero.backgroundSlideshow ?? []}
+                      options={imageOptions}
+                      addLabel="Tilfoj slideshow-billede"
+                      onChange={(values) => mutateContent((c) => (c.hero.backgroundSlideshow = values))}
+                    />
                   ) : null}
                   <TextInput label="Overskrift i topsektion" value={draft.content.hero.title} onChange={(value) => mutateContent((c) => (c.hero.title = value))} />
                   <TextArea label="Beskrivelse i topsektion" rows={5} value={draft.content.hero.text} onChange={(value) => mutateContent((c) => (c.hero.text = value))} />
@@ -1572,6 +1643,7 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
                             menuLabel: `Side ${idx}`,
                             title: `Ny side ${idx}`,
                             intro: 'Sideintroduktion',
+                            heroImage: '',
                             showInMenu: true,
                             sections: [{ heading: 'Sektionsoverskrift', text: 'Sektionstekst', bullets: [] }],
                           })
@@ -1658,6 +1730,13 @@ export default function AdminCmsEditor({ initialState, storageMode }: AdminCmsEd
                           rows={3}
                           value={page.intro}
                           onChange={(value) => mutateContent((c) => (c.customPages[pageIndex].intro = value))}
+                        />
+
+                        <ImagePickerField
+                          label="Banner / hero-billede"
+                          value={page.heroImage}
+                          options={imageOptions}
+                          onChange={(value) => mutateContent((c) => (c.customPages[pageIndex].heroImage = value))}
                         />
 
                         <div className="space-y-3">

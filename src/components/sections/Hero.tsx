@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useMemo, useState } from 'react'
 import Container from '@/components/Container'
 import { withSiteBasePath } from '@/lib/site-paths'
 import { SiteContent } from '@/lib/site-data'
@@ -24,6 +27,35 @@ export default function Hero({ hero }: HeroProps) {
   const useVideo = hero.backgroundType === 'video' && hero.backgroundVideo.trim().length > 0
   const backgroundImage = withSiteBasePath(hero.backgroundImage)
   const backgroundVideo = withSiteBasePath(hero.backgroundVideo)
+  const slideshowImages = useMemo(() => {
+    const unique = new Set<string>()
+    const sources = [hero.backgroundImage, ...(hero.backgroundSlideshow ?? [])]
+
+    return sources
+      .map((source) => source.trim())
+      .filter((source) => source.length > 0)
+      .filter((source) => {
+        if (unique.has(source)) return false
+        unique.add(source)
+        return true
+      })
+      .map((source) => withSiteBasePath(source))
+  }, [hero.backgroundImage, hero.backgroundSlideshow])
+  const showSlideshow = !useVideo && slideshowImages.length > 1
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  useEffect(() => {
+    if (!showSlideshow) {
+      setActiveSlide(0)
+      return
+    }
+
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slideshowImages.length)
+    }, 5200)
+
+    return () => window.clearInterval(timer)
+  }, [showSlideshow, slideshowImages.length])
 
   return (
     <section className="hero-shell relative">
@@ -40,13 +72,45 @@ export default function Hero({ hero }: HeroProps) {
           >
             <source src={backgroundVideo} type={getVideoMimeType(hero.backgroundVideo)} />
           </video>
+        ) : showSlideshow ? (
+          slideshowImages.map((slideImage, index) => (
+            <div
+              key={slideImage}
+              className={`absolute inset-0 transition-opacity duration-[1400ms] ease-out ${
+                index === activeSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <Image
+                src={slideImage}
+                alt="Professionelt arbejde"
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className={`object-cover transition-transform duration-[6200ms] ease-out ${
+                  index === activeSlide ? 'scale-100' : 'scale-[1.05]'
+                }`}
+              />
+            </div>
+          ))
         ) : (
           <Image src={backgroundImage} alt="Professionelt arbejde" fill priority className="object-cover" sizes="100vw" />
         )}
         <div className="hero-overlay absolute inset-0" />
+        {showSlideshow ? (
+          <div className="pointer-events-none absolute bottom-5 left-1/2 z-[1] flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/16 bg-black/14 px-3 py-2 backdrop-blur-sm">
+            {slideshowImages.map((slideImage, index) => (
+              <span
+                key={`${slideImage}-indicator`}
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  index === activeSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/45'
+                }`}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
 
-      <Container className="relative py-14 sm:py-16 md:py-20 lg:py-24">
+      <Container className="relative z-[2] py-14 sm:py-16 md:py-20 lg:py-24">
         <div className="max-w-[54rem]">
           <p className="animate-fade-in-up text-[0.76rem] font-bold uppercase tracking-[0.14em] text-[color:var(--site-primary)] sm:text-xs md:text-sm">
             {hero.eyebrow}

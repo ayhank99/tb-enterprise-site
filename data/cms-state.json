@@ -80,6 +80,11 @@
       "secondaryCtaHref": "tel:+4593800426",
       "backgroundType": "image",
       "backgroundImage": "/uploads/onsayfa.png",
+      "backgroundSlideshow": [
+        "/media/qdhbe-5914b979.jpg",
+        "/media/lawfe-fb6335ac.jpg",
+        "/media/itbni-f0cdf437.jpg"
+      ],
       "backgroundVideo": "/uploads/gen-4-turbo-cinematic-construction-scene-workers-installing-paving-stones-on-a-residential-driveway-one-worker-is-carefully-placing-bricks-with-a-hammer-while-another-operates-a-compactor-an-excava-260a7432.mp4"
     },
     "trustPoints": [
@@ -533,6 +538,7 @@
       {
         "slug": "entreprise-og-anlaeg",
         "menuLabel": "Entreprise",
+        "heroImage": "/media/z8vta-f8abde46.jpg",
         "title": "Entreprise og anlæg med fokus på kvalitet, fremdrift og aflevering",
         "intro": "TB Entreprise hjælper kunder, der har brug for en samarbejdspartner til udearealer, anlæg og mindre entrepriser, hvor flere praktiske hensyn skal spille sammen.",
         "showInMenu": true,
@@ -569,6 +575,7 @@
       {
         "slug": "erhverv-og-drift",
         "menuLabel": "Erhverv",
+        "heroImage": "/media/itbni-f0cdf437.jpg",
         "title": "Erhverv og drift af udearealer med stabil kvalitet og professionelt udtryk",
         "intro": "For erhverv, boligforeninger og institutioner er udearealet en del af den samlede brugeroplevelse. Derfor skal drift og vedligehold være både funktionelt og visuelt stærkt.",
         "showInMenu": true,
@@ -604,6 +611,7 @@
       },
       {
         "slug": "projektforloeb",
+        "heroImage": "/media/qdhbe-5914b979.jpg",
         "menuLabel": "Projektforløb",
         "title": "Projektforløb fra første besigtigelse til professionel aflevering",
         "intro": "Et godt projektforløb handler om mere end at få arbejdet udført. Det handler om at skabe overblik, tryghed og et resultat, der er gennemtænkt hele vejen igennem.",
